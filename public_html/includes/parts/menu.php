@@ -3,8 +3,8 @@
         <a href="#" class="closebtn" id="navClose"><i class="fa-solid fa-x"></i></a>
         <div class="overlay-menu-content">
             <a href="produit.php">Produits</a>
-            <a href="#">Accessoires</a>
-            <a href="#">Ateliers</a>
+            <a href="accessoires.php">Accessoires</a>
+            <a href="ateliers.php">Ateliers</a>
             <a href="#">Présentation</a>
             <a href="#">Contact</a>
         </div>

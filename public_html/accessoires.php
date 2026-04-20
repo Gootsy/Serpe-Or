@@ -15,7 +15,7 @@
 
     <body>
         <?php include_once(__DIR__.'/includes/parts/menu.php') ?>
-        <main id="produit">
+        <main id="accessoires">
             <aside>
                 <div class="filtre">
                     <form action="produit.php" method="get">
@@ -24,7 +24,7 @@
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
                         <div class="line dropdown">
-                            <button type="button" class="dropbtn">Catégorie <i class="fa-solid fa-angle-down"></i></button>
+                            <button type="button" class="dropbtn">Terreau <i class="fa-solid fa-angle-down"></i></button>
                             <div class="dropdown-content">
                                 <div class="checkbox">
                                     <input type="checkbox" name="categorie" id="inside">
@@ -35,55 +35,51 @@
                                     <label for="outside">Extérieur</label>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="checkbox" name="categorie" id="terrarium">
-                                    <label for="terrarium">Terrarium</label>
+                                    <input type="checkbox" name="categorie" id="universel">
+                                    <label for="universel">Universel</label>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="checkbox" name="categorie" id="aromat">
-                                    <label for="aromat">Plantes aromatiques</label>
+                                    <input type="checkbox" name="categorie" id="substrat">
+                                    <label for="substrat">Substrat</label>
                                 </div>
                             </div>
                         </div>
                         <div class="line dropdown">
-                            <button type="button" class="dropbtn">Entretien <i class="fa-solid fa-angle-down"></i></button>
+                            <button type="button" class="dropbtn">Disponible <i class="fa-solid fa-angle-down"></i></button>
                             <div class="dropdown-content">
                                 <div class="checkbox">
-                                    <input type="checkbox" name="entretien" id="easy">
-                                    <label for="easy">Facile</label>
+                                    <input type="checkbox" name="dispo" id="stock">
+                                    <label for="stock">En stock</label>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="checkbox" name="entretien" id="doable">
-                                    <label for="doable">Moyen</label>
-                                </div>
-                                <div class="checkbox">
-                                    <input type="checkbox" name="entretien" id="hard">
-                                    <label for="hard">Difficile</label>
+                                    <input type="checkbox" name="dispo" id="rupture">
+                                    <label for="rupture">Rupture</label>
                                 </div>
                             </div>
                         </div>
                         <div class="line dropdown">
-                            <button type="button" class="dropbtn">Exposition <i class="fa-solid fa-angle-down"></i></button>
+                            <button type="button" class="dropbtn">Outils <i class="fa-solid fa-angle-down"></i></button>
                             <div class="dropdown-content">
                                 <div class="checkbox">
-                                    <input type="checkbox" name="exposition" id="sun">
-                                    <label for="sun">Plein soleil</label>
+                                    <input type="checkbox" name="outils" id="arrosoir">
+                                    <label for="arrosoir">Arrosoir</label>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="checkbox" name="exposition" id="misun">
-                                    <label for="misun">Lumière vive indirect</label>
+                                    <input type="checkbox" name="outils" id="vapo">
+                                    <label for="vapo">Vaporisateur</label>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="checkbox" name="exposition" id="middle">
-                                    <label for="middle">Mi-ombre</label>
+                                    <input type="checkbox" name="outils" id="tuteur">
+                                    <label for="tuteur">Tuteur</label>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="checkbox" name="exposition" id="shadow">
-                                    <label for="shadow">Ombre</label>
+                                    <input type="checkbox" name="outils" id="tool">
+                                    <label for="tool">Outil</label>
                                 </div>
                             </div>
                         </div>
                         <div class="line dropdown">
-                            <button type="button" class="dropbtn">Taille de pot <i class="fa-solid fa-angle-down"></i></button>
+                            <button type="button" class="dropbtn">Cache pot <i class="fa-solid fa-angle-down"></i></button>
                             <div class="dropdown-content">
                                 <div class="checkbox">
                                     <input type="checkbox" name="taille" id="pousse">
