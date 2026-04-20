@@ -24,6 +24,6 @@
         </div>
     </div>
     <div>
-        <a class="button" href="#">Plus d'information<i class="fa-solid fa-arrow-right-long"></i></a>
+        <a class="button" href="detail.php">Plus d'information<i class="fa-solid fa-arrow-right-long"></i></a>
     </div>
 </article>
