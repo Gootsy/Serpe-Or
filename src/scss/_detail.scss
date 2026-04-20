@@ -6,7 +6,7 @@
         display: flex;
         flex-direction: row;
         .detail-gallery{
-            width: 30%;
+            width: 40%;
             margin: auto;
             overflow: hidden;
             position: relative;
@@ -15,13 +15,13 @@
             }
             .viewer{
                 width: 300%;
-                height: 450px;
+                height: 650px;
                 display: flex;
-                transition: transform 0.5s ease-in-out;
+                transition: transform 5s cubic-bezier(0.075, 0.82, 0.165, 1);
                 .container-img{
                     width: 100%;
                     height: 100%;
-                    .slide{
+                    img{
                         margin: 0;
                         width: 100%;
                         height: 100%;
@@ -31,29 +31,159 @@
                     }
                 }
             }
-            #img1:checked ~ .container-img img:nth-child(1),
-            #img2:checked ~ .container-img img:nth-child(2),
-            #img3:checked ~ .container-img img:nth-child(3){
-                display: block;
+            #img1:checked ~ .viewer .container-img{
+                transform: translateX(0%);
+            }
+            #img2:checked ~.viewer .container-img{
+                transform: translateX(-100%);
+            }
+            #img3:checked ~.viewer .container-img{
+                transform: translateX(-200%);
             }
             .controls{
-                display: flex;
-                flex-direction: row;
-                justify-content: space-around;
-                text-align: center;
-                margin: 5% auto;
-                label{
-                    width: 30%;
+                ul{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    text-align: center;
+                    margin-left: -8%;
+                    width: 166%;
                     height: 75px;
+                    list-style-type: none;
+                    overflow: hidden;
+                    li{
+                        width: fit-content;
+                        label{
+                            cursor: pointer;
+                            img{
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                object-position: center;
+                            }
+                        }
+                    }
+                }
+            }
+            .actions{
+                width: 100%;
+                    .previous,
+                    .forwards {
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    display: grid;
+                    place-content: center;
                     cursor: pointer;
-                    img{
+                    position: absolute;
+                    bottom: 5%;
+                    border: 0;
+                    border-radius: 20px;
+                    background-color: white;
+                    color: #377211;
+                    padding: 0 1.5%;
+                    &:hover{
+                        background-color: #dfe7da;
+                    }
+                }
+                .previous {
+                    left: 5px;
+                }
+                .forwards {
+                    right: 5px;
+                }
+            }
+        }
+        .detail-article{
+            width: 45%;
+            font-size: 0.9rem;
+            margin: auto;
+            .article-icons{
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                text-align: center;
+                margin: 2%;
+                i{
+                    font-size: 1.5rem;
+                }
+                .icon-title{
+                    line-height: 0.5rem;
+                    font-weight: 600;
+                }
+            }
+            .order{
+                width: 70%;
+                margin: auto;
+                border-radius: 20px;
+                background-color: #C49373;
+                box-shadow: 5px 5px 5px rgba(90, 89, 89, 0.656);
+                form{
+                    padding: 7%;
+                    .price{
+                        font-size: 2rem;
+                        color: #377211;
+                        font-weight: 600;
+                        margin: 0;
+                    }
+                    .order-detail{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        .round{
+                            border-radius: 20px;
+                            height: 10px;
+                            width: 10px;
+                            margin-right: 1%;
+                            &.green{
+                                background-color: #377211;
+                            }
+                        }
+                        p{
+                            font-size: 1.1rem;
+                            margin-right: 2%;
+                        }
+                        .qty-count{
+                            border: none;
+                            border-radius: 50%;
+                            width: 50px;
+                            height: 50px;
+                            background-color: #D9BCA3;
+                            color: white;
+                            font-size: 2.5rem;
+                            font-weight: 600;
+                            cursor: pointer;
+                        }
+                        .product-qty{
+                            border: none;
+                            background-color: transparent;
+                            text-align: center;
+                            font-size: 1.5rem;
+                            appearance: textfield;
+                            &:focus-visible{
+                                border: none;
+                            }
+                            &::-webkit-outer-spin-button,
+                            ::-webkit-inner-spin-button {
+                                appearance: none;
+                                margin: 0;
+                            }
+                        }
+                    }
+                    .order-btn input{
+                        margin-top: 4%;
                         width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                        object-position: center;
+                        padding: 4%;
+                        border: none;
+                        border-radius: 20px;
+                        background-color: #D9BCA3;
+                        color: #377211;
+                        font-size: 1.2rem;
+                        cursor: pointer;
                     }
                 }
             }
         }
+    }
+    .recommandation{
+        margin: 6% 4% 0;
     }
 }

@@ -17,31 +17,105 @@
         <?php include_once(__DIR__.'/includes/parts/menu.php') ?>
 
         <main id="produit-detail">
-            <section class="detail-container">
+            <section class="detail-container  carousel">
                 <div class="detail-gallery">
                     <input type="radio" name="gallery" id="img1" checked>
                     <input type="radio" name="gallery" id="img2">
                     <input type="radio" name="gallery" id="img3">
                     <div class="viewer">
                         <div class="container-img">
-                        <img src="<?= vite_get_asset('produits/feey-bwsTJMnhcwE-unsplash.jpg'); ?>" alt="Image 1" class="slide">
+                        <img src="<?= vite_get_asset('produits/feey-bwsTJMnhcwE-unsplash.jpg'); ?>" alt="Image 1">
                         </div>
                         <div class="container-img">
-                        <img src="<?= vite_get_asset('produits/olena-bohovyk-TpALGJoHFP8-unsplash.jpg'); ?>" alt="Image 2" class="slide">
+                        <img src="<?= vite_get_asset('produits/olena-bohovyk-TpALGJoHFP8-unsplash.jpg'); ?>" alt="Image 2">
                         </div>
                         <div class="container-img">
-                        <img src="<?= vite_get_asset('produits/feey-bwsTJMnhcwE-unsplash.jpg'); ?>" alt="Image 3" class="slide">
+                        <img src="<?= vite_get_asset('produits/feey-bwsTJMnhcwE-unsplash.jpg'); ?>" alt="Image 3">
                         </div>
                     </div>
-                    <div class="controls">
-                        <label for="img1"><img src="<?= vite_get_asset('produits/feey-bwsTJMnhcwE-unsplash.jpg'); ?>" alt=""></label>
-                        <label for="img2"><img src="<?= vite_get_asset('produits/olena-bohovyk-TpALGJoHFP8-unsplash.jpg'); ?>" alt=""></label>
-                        <label for="img3"><img src="<?= vite_get_asset('produits/feey-bwsTJMnhcwE-unsplash.jpg'); ?>" alt=""></label>
+                    <div class="controls" tabindex="0">
+                        <ul class="slides">
+                            <li class="slide-img"><label for="img1"><img src="<?= vite_get_asset('produits/feey-bwsTJMnhcwE-unsplash.jpg'); ?>" alt=""></label></li>
+                            <li class="slide-img"><label for="img2"><img src="<?= vite_get_asset('produits/olena-bohovyk-TpALGJoHFP8-unsplash.jpg'); ?>" alt=""></label></li>
+                            <li class="slide-img"><label for="img3"><img src="<?= vite_get_asset('produits/feey-bwsTJMnhcwE-unsplash.jpg'); ?>" alt=""></label></li>
+                            <li class="slide-img"><label for="img3"><img src="<?= vite_get_asset('produits/feey-bwsTJMnhcwE-unsplash.jpg'); ?>" alt=""></label></li>
+                            <li class="slide-img"><label for="img3"><img src="<?= vite_get_asset('produits/feey-bwsTJMnhcwE-unsplash.jpg'); ?>" alt=""></label></li>
+                        </ul>
+                    </div>
+                    <div class="actions">
+                        <button type="button" class="previous" aria-label="Previous slide">
+                        <
+                        </button>
+                        <button type="button" class="forwards" aria-label="Next slide">
+                        >
+                        </button>
                     </div>
                 </div>
                 <article class="detail-article">
-
+                    <h3>Monstera</h3>
+                    <h4>Titre latin</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos veritatis totam tempore inventore debitis mollitia accusantium animi deleniti ipsum nemo velit possimus rem a natus, culpa in. Dignissimos, eveniet iure! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam iste aperiam porro possimus, tenetur mollitia asperiores! Illo quae deleniti rem, odit eveniet cum obcaecati ducimus eaque error, dolores hic alias.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos veritatis totam tempore inventore debitis mollitia accusantium animi deleniti ipsum nemo velit possimus rem a natus, culpa in. Dignissimos, eveniet iure! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam iste aperiam porro possimus, tenetur mollitia asperiores! Illo quae deleniti rem, odit eveniet cum obcaecati ducimus eaque error, dolores hic alias.</p>
+                    <div class="article-icons">
+                        <div class="icon">
+                            <i class="fa-solid fa-ruler-vertical"></i>
+                            <p class="icon-title">Hauteur de pot</p>
+                            <p>00cm</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa-solid fa-ruler-horizontal"></i>
+                            <p class="icon-title">Largeur de pot</p>
+                            <p>00cm</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa-solid fa-cloud-sun"></i>
+                            <p class="icon-title">Exposition</p>
+                            <p>Lumière directe et abondante</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                            <p class="icon-title">Entretien</p>
+                            <p>Difficile</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa-solid fa-droplet"></i>
+                            <p class="icon-title">Humidité</p>
+                            <p>50%</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa-solid fa-shower"></i>
+                            <p class="icon-title">Arrosage</p>
+                            <p>1x/sem</p>
+                        </div>
+                    </div>
+                    <div class="order">
+                        <form action="" method="post">
+                            <p class="price">35€</p>
+                            <div class="order-detail">
+                                <div class="round green"></div>
+                                <p>Disponible au magazin</p>
+                            </div>
+                            <div class="order-detail">
+                                <p>Quantité:</p>
+                                <button class="qty-count qty-count--minus" commandfor="qty" command="--decrement" type="button">-</button>
+                                <input class="product-qty" type="number" id="qty" name="quantity" min="1" max="10" step="1" value="1">
+                                <button class="qty-count qty-count--add" commandfor="qty" command="--increment" type="button">+</button>
+                            </div>
+                            <div class="order-btn">
+                                <input type="submit" value="Ajouter au panier">
+                            </div>
+                        </form>
+                    </div>
                 </article>
+            </section>
+            <section class="recommandation">
+                <h3>Ce que nous vous recommandons avec ce produit:</h3>
+                <div class="container-card">
+                    <?php for ($i=0;$i<3;$i++){
+                        include(__DIR__.'../includes/parts/carte.php');
+                    }
+                    ?>
+                </div>
             </section>
         </main>
 
