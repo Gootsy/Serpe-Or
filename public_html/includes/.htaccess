@@ -1,0 +1,2 @@
+# Interdire l'accès à tous les fichiers de ce dossier via URL
+Deny from all

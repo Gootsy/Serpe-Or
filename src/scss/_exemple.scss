@@ -1,0 +1,30 @@
+@use "variables" as var;
+
+body {
+  background-color: var.$bg-color;
+  color: var.$color-orange;
+}
+
+section {
+  background-color: var.$bg-color;
+  
+  h2 { // Ici le nesting permet de imbriquer les sélecteurs
+    font-size: 2rem;
+  }
+  
+  p {
+    color: var.$color-orange;
+  }
+
+  &.postcss { // Ici le '&' permet de faire référence au sélecteur parent
+    h2 { // Ici on cible donc le(s) <h2> descendant(s) de la <section> qui possède la class 'postcss'
+      color: var.$color-red;
+    }
+  }
+
+  &.nesting {
+    h2 {
+      color: var.$color-orange;
+    }
+  }
+}

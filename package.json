@@ -1,0 +1,24 @@
+{
+  "name": "projet-vite-wamp",
+  "version": "1.0.0",
+  "description": "Projet de base avec vite et wamp",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.10",
+    "sass": "^1.99.0",
+    "sharp": "^0.34.5",
+    "svgo": "^4.0.1",
+    "vite": "^8.0.3",
+    "vite-plugin-image-optimizer": "^2.0.3"
+  }
+}

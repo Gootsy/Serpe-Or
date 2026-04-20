@@ -1,0 +1,19 @@
+{
+  "src/images/content/image.jpg": {
+    "file": "assets/image-CnfnZpQ1.jpg",
+    "src": "src/images/content/image.jpg"
+  },
+  "src/images/icons/facebook.svg": {
+    "file": "assets/facebook-I3CK9Jd3.svg",
+    "src": "src/images/icons/facebook.svg"
+  },
+  "src/main.js": {
+    "file": "assets/main-CxULGkE8.js",
+    "name": "main",
+    "src": "src/main.js",
+    "isEntry": true,
+    "css": [
+      "assets/main-CitWT_Jy.css"
+    ]
+  }
+}

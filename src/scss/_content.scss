@@ -1,0 +1,491 @@
+@use "variables" as var;
+
+
+.alex-brush-regular {
+  font-family: "Alex Brush", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.inria-serif-light {
+  font-family: "Inria Serif", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.inria-serif-regular {
+  font-family: "Inria Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inria-serif-bold {
+  font-family: "Inria Serif", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.inria-serif-light-italic {
+  font-family: "Inria Serif", serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.inria-serif-regular-italic {
+  font-family: "Inria Serif", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.inria-serif-bold-italic {
+  font-family: "Inria Serif", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+body{
+  font-family: "Inria Serif";
+}
+a {text-decoration: none;
+  color:black;
+}
+a:hover{
+  color:#38721193;
+}
+.button{
+  padding: 1%;
+  background-color: #C49373;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  font-size: 1.25rem;
+}
+
+
+
+
+/*HOME*/
+/*MAIN*/
+#home{
+  background-color: #D9BCA3;
+}
+/*MAIN-BANNER*/
+.banner{
+  width: 100%;
+  height: 100vh;
+}
+.banner img{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+h1{
+  font-family: "Alex Brush";
+  color: white;
+  font-size: 5rem;
+  font-weight: 400;
+  position: absolute;
+  top: 60%;
+  left: 15%;
+  z-index: 1;
+}
+.aside{
+  position: absolute;
+  z-index: 50;
+  top:25%;
+  right:0;
+  background-color: #387211ec;
+  filter: blur(10%);
+  clip-path: inset(0% 0% 0% 35% round 75% 0% 0% 0%);
+  width: 45%;
+  padding: 2.5% 5%;
+  text-align: center;
+}
+.aside p{
+  color: white;
+  font-size: 2.4rem;
+  margin: 17% -3% 5% 5%;
+  text-align: right;
+}
+.aside img{
+  width: 60%;
+  position: relative;
+  left: 23%;
+  margin-bottom: 5%;
+}
+
+.aside .button{
+  position: relative;
+  left: 52%;
+  width: 40%;
+}
+.button i{
+  margin-left: 10%;
+}
+
+/*MAIN-HISTOIRE*/
+.histoire{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 5%;
+}
+.histoire-img{
+  width: 176%;
+  position: relative;
+  z-index: 2;
+}
+.histoire-img img{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.histoire-txt{
+  margin: 0% 5%;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.histoire-txt p{
+  height: 57%;
+}
+h2{
+  color: #377211;
+  font-size: 2.5rem;
+  margin-top: 0;
+}
+h3{
+  font-size: 1.5rem;
+}
+.fond-img-right{
+  width: 200%;
+}
+.fond-img-right img{
+  opacity: 0.25;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  margin-top: 5%;
+}
+
+/*MAIN-CATEGORIE*/
+.categorie-box{
+  position: relative;
+  z-index: 2;
+  overflow: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+.slide-container{
+  display: inline-flex;
+  padding:1%;
+}
+.slide{
+  margin: 1%;
+  position: relative;
+  width: 430px;
+  aspect-ratio: 10/8.5;
+  overflow: hidden;
+}
+.slide img{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.category-overlay{
+  position: absolute;
+  z-index: 1;
+  bottom: -100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #c4947394;
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s ease-out;
+  opacity:0;
+}
+.category-overlay a{
+  padding: 30% 20%;
+  margin: auto;
+  color: white !important;
+  font-size: xx-large;
+}
+.slide:hover .category-overlay {
+  opacity: 1;
+  bottom: 0;
+}
+.pagination{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 2%;
+}
+.pagination .pagination-bullet{
+  width: 11px;
+  height: 11px;
+  border-radius: 10px;
+  background-color: #377211;
+  opacity: 0.8;
+  margin: 1%;
+}
+.pagination .pagination-bullet:hover{ // input radio comme gallery
+  width: 30px;
+  background-color: #C49373;
+  opacity: 1;
+}
+
+
+.fond-img-left img{
+  opacity: 0.25;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  margin-top: -12%;
+  height: 90%;
+}
+
+/*MAIN-ARRIVAGE*/
+.new{
+  margin: 7%;
+}
+.new h2{
+  text-align: center;
+  margin: 7% auto;
+}
+.container-card{
+  position: relative;
+  z-index: 2;
+  margin: 2%;
+  display: flex;
+  justify-content: space-between;
+}
+.card{
+  display: block;
+  border-radius: 20px;
+  box-shadow: 5px 10px 18px #888888;
+  width: 30%;
+  background-color: white;
+}
+.card-img{
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: 100%;
+  aspect-ratio: 10/7;
+}
+.card-img img{
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-position: 0 10%;
+  display: block;
+}
+.card-title{
+  display: flex;
+  justify-content: space-around;
+}
+.card-title p{
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #377211;
+}
+.details{
+  display: flex;
+  justify-content: space-around;
+  margin: 5%;
+}
+.detail{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+}
+.detail-title{
+  font-weight: 600;
+}
+.card .button{
+  margin: 5% auto ;
+}
+.suite .button{
+  margin: 7% auto;
+  width: 20%;
+}
+.new .fond-img-right img{
+  margin-top: -20%;
+}
+
+/*MAIN-ATELIER*/
+.action-atelier{
+  position: relative;
+  z-index: 2;
+  background-image: url(../images/content/terrarium-demo.jpg);
+  background-position: 20% 20%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 3%;
+}
+
+/*MAIN-GARANTIE*/
+.garantie{
+  background-color: #C49373;
+  padding: 3%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.garantie div{
+  text-align: center;
+  width: 22%;
+}
+.garantie img{
+  width: 20%;
+}
+.garantie p{
+  font-size: larger;
+}
+
+/*MAIN-NEWSLETTER*/
+.newsletter{
+  background-color: white;
+  padding: 3%;
+  text-align: center;
+  font-size: larger;
+}
+.newsletter div{
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.newsletter span{
+  color: #377211;
+  font-weight: 600;
+}
+#newsletter{
+  margin: 2%;
+  border: #377211 1px solid;
+  border-radius: 20px;
+  color:#C49373;
+  font-size:medium;
+  padding: 1% 3%;
+}
+#newsletter::placeholder{
+  color: #C49373;
+}
+.submit{
+  background-color: #C49373;
+  color:#377211;
+  border-radius: 20px;
+  border: transparent;
+  font-size: larger;
+  padding: 0.8%;
+}
+.submit:hover{
+  color:#D9BCA3;
+  cursor: pointer;
+}
+
+/*PRODUITS*/
+/*MAIN*/
+#produit{
+  background-color: #C49373;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  margin-top:6%;
+}
+/*ASIDE*/
+#produit aside{
+  position: fixed;
+  width: 20%;
+}
+.filtre{
+  position: relative;
+  width: 80%;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgba(90, 89, 89, 0.656);
+  padding: 8%;
+  z-index: 4;
+}
+.line{
+  padding: 3%;
+  border-bottom: 1px solid rgb(103, 102, 102);
+}
+.dropdown {
+  position: relative;
+  z-index: 4;
+  display: inline-block;
+  width: 95%;
+}
+#search{
+  border: none;
+  width: 88%;
+}
+.dropbtn{
+  border: none;
+  background-color: white;
+  font-size: large;
+  font-weight: 500;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.dropdown-content{
+  display: none;
+  overflow: hidden;
+}
+.dropdown-content.show{
+  display: block;
+}
+.fa-angle-down{
+  transform: rotate(0deg);
+  transition: 1s linear;
+}
+.fa-angle-down open{
+  transform: rotate(180deg);
+  transition: 1s linear;
+}
+[type="checkbox"]{
+  margin-left: 5%;
+  margin-right: 2%;
+}
+.filtre-btn input{
+  border-radius: 20px;
+  border: none;
+  background-color: #C49373;
+  padding: 1%;
+  margin: 5% auto 0%;
+  width: 100%;
+  font-size: large;
+  cursor: pointer;
+}
+.filtre-btn input:hover{
+  color: #377211;
+}
+#produit aside .fond-img-left img{
+  opacity: 1;
+  margin-top: -2%;
+}
+.container-cartes{
+  width: 75%;
+  position: relative;
+  left: 22%;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  justify-items: end;
+  gap: 3%;
+  margin-bottom: 15%;
+
+  .card{
+    width: 90%;
+  }
+}
