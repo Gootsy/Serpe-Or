@@ -115,8 +115,5 @@
             </section>
         </main>
         <?php include_once(__DIR__.'../includes/parts/footer.php'); ?>
-
-
-    <script src="assets/JS/script.js"></script>
     </body>
 </html>

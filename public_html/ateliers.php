@@ -34,15 +34,67 @@
                                         <p>Prix: <span>25€</span></p>
                                     </div>
                                     <div class="infor-btn">
-                                        <a href="#">Réservez maintenant</a>
+                                        <a href="atelier-detail.php">Réservez maintenant</a>
                                     </div>
                                 </div>
                             </div>
                     </article>
-                    
+                    <article class="atelier">
+                            <img src="<?= vite_get_asset('ateliers/sean-foster-drstUK2WG3Q-unsplash.jpg'); ?>" alt="">
+                            <div class="atelier-txt">
+                                <h3>Titre</h3>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam, eum nihil, nesciunt vitae harum dicta dolores quos sapiente facere ullam rerum distinctio, esse optio doloremque! Omnis corporis repudiandae deleniti sint.</p>
+                                <div class="atelier-infor">
+                                    <div class="infor">
+                                        <p>Places restantes: <span>8</span></p>
+                                        <p>Dates: <span>01-01-27</span></p>
+                                        <p>Horaires: <span>14h30</span></p>
+                                        <p>Prix: <span>25€</span></p>
+                                    </div>
+                                    <div class="infor-btn">
+                                        <a href="atelier-detail.php">Réservez maintenant</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </article>
+                    <article class="atelier">
+                            <img src="<?= vite_get_asset('ateliers/sean-foster-drstUK2WG3Q-unsplash.jpg'); ?>" alt="">
+                            <div class="atelier-txt">
+                                <h3>Titre</h3>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam, eum nihil, nesciunt vitae harum dicta dolores quos sapiente facere ullam rerum distinctio, esse optio doloremque! Omnis corporis repudiandae deleniti sint.</p>
+                                <div class="atelier-infor">
+                                    <div class="infor">
+                                        <p>Places restantes: <span>8</span></p>
+                                        <p>Dates: <span>01-01-27</span></p>
+                                        <p>Horaires: <span>14h30</span></p>
+                                        <p>Prix: <span>25€</span></p>
+                                    </div>
+                                    <div class="infor-btn">
+                                        <a href="atelier-detail.php">Réservez maintenant</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </article>
+                    <article class="atelier">
+                            <img src="<?= vite_get_asset('ateliers/terrarium-demo.jpg'); ?>" alt="">
+                            <div class="atelier-txt">
+                                <h3>Titre</h3>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam, eum nihil, nesciunt vitae harum dicta dolores quos sapiente facere ullam rerum distinctio, esse optio doloremque! Omnis corporis repudiandae deleniti sint.</p>
+                                <div class="atelier-infor">
+                                    <div class="infor">
+                                        <p>Places restantes: <span>8</span></p>
+                                        <p>Dates: <span>01-01-27</span></p>
+                                        <p>Horaires: <span>14h30</span></p>
+                                        <p>Prix: <span>25€</span></p>
+                                    </div>
+                                    <div class="infor-btn">
+                                        <a href="atelier-detail.php">Réservez maintenant</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </article>
                 </section>
             </main>
         <?php include_once(__DIR__.'../includes/parts/footer.php'); ?>
-    <script src="assets/JS/script.js"></script>
     </body>
 </html>

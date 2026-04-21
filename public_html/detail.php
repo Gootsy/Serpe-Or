@@ -22,6 +22,8 @@
                     <input type="radio" name="gallery" id="img1" checked>
                     <input type="radio" name="gallery" id="img2">
                     <input type="radio" name="gallery" id="img3">
+                    <input type="radio" name="gallery" id="img4">
+                    <input type="radio" name="gallery" id="img5">
                     <div class="viewer">
                         <div class="container-img">
                         <img src="<?= vite_get_asset('produits/feey-bwsTJMnhcwE-unsplash.jpg'); ?>" alt="Image 1">
@@ -32,14 +34,20 @@
                         <div class="container-img">
                         <img src="<?= vite_get_asset('produits/feey-bwsTJMnhcwE-unsplash.jpg'); ?>" alt="Image 3">
                         </div>
+                        <div class="container-img">
+                        <img src="<?= vite_get_asset('produits/feey-bwsTJMnhcwE-unsplash.jpg'); ?>" alt="Image 4">
+                        </div>
+                        <div class="container-img">
+                        <img src="<?= vite_get_asset('produits/feey-bwsTJMnhcwE-unsplash.jpg'); ?>" alt="Image 5">
+                        </div>
                     </div>
                     <div class="controls" tabindex="0">
                         <ul class="slides">
                             <li class="slide-img"><label for="img1"><img src="<?= vite_get_asset('produits/feey-bwsTJMnhcwE-unsplash.jpg'); ?>" alt=""></label></li>
                             <li class="slide-img"><label for="img2"><img src="<?= vite_get_asset('produits/olena-bohovyk-TpALGJoHFP8-unsplash.jpg'); ?>" alt=""></label></li>
                             <li class="slide-img"><label for="img3"><img src="<?= vite_get_asset('produits/feey-bwsTJMnhcwE-unsplash.jpg'); ?>" alt=""></label></li>
-                            <li class="slide-img"><label for="img3"><img src="<?= vite_get_asset('produits/feey-bwsTJMnhcwE-unsplash.jpg'); ?>" alt=""></label></li>
-                            <li class="slide-img"><label for="img3"><img src="<?= vite_get_asset('produits/feey-bwsTJMnhcwE-unsplash.jpg'); ?>" alt=""></label></li>
+                            <li class="slide-img"><label for="img4"><img src="<?= vite_get_asset('produits/feey-bwsTJMnhcwE-unsplash.jpg'); ?>" alt=""></label></li>
+                            <li class="slide-img"><label for="img5"><img src="<?= vite_get_asset('produits/feey-bwsTJMnhcwE-unsplash.jpg'); ?>" alt=""></label></li>
                         </ul>
                     </div>
                     <div class="actions">
@@ -120,6 +128,5 @@
         </main>
 
         <?php include_once(__DIR__.'../includes/parts/footer.php'); ?>
-    <script src="assets/JS/script.js"></script>
     </body>
 </html>

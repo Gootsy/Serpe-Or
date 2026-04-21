@@ -11,7 +11,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/97e7d2c8b2.js" crossorigin="anonymous"></script>
-	      <?php echo vite_get_scripts('main.js'); ?>
+	    <?php echo vite_get_scripts('main.js'); ?>
     </head>
 
     <body>
@@ -23,7 +23,7 @@
                 <div class="aside">
                     <p>Venez découvrir</br>nos ateliers</br>pour mieux</br>connaître vos</br>plantes adorées!</p>
                     <img src="<?php echo vite_get_asset('content/terrarium-demo.jpg'); ?>" alt="atelier terrarium">
-                    <a class="button" href="atelier.php">Plus d'information<i class="fa-solid fa-arrow-right-long"></i></a>
+                    <a class="button" href="ateliers.php">Plus d'information<i class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
             </section>
 
@@ -118,8 +118,7 @@
 
             <section class="action-atelier">
                 <div class="suite">
-
-                  <a class="button" href="#">Nos ateliers  <i class="fa-solid fa-arrow-right-long"></i></a>
+                    <a class="button" href="ateliers.php">Nos ateliers  <i class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
             </section>
 
@@ -147,8 +146,5 @@
             </section>
         </main>
         <?php include_once(__DIR__.'../includes/parts/footer.php') ?>
-
-
-    <script src="assets/JS/script.js"></script>
     </body>
 </html>

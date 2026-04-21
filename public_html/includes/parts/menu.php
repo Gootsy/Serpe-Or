@@ -5,7 +5,7 @@
             <a href="produit.php">Produits</a>
             <a href="accessoires.php">Accessoires</a>
             <a href="ateliers.php">Ateliers</a>
-            <a href="#">Présentation</a>
+            <a href="presentation.php">Présentation</a>
             <a href="#">Contact</a>
         </div>
     </div>
