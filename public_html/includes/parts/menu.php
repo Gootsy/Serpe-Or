@@ -6,7 +6,7 @@
             <a href="accessoires.php">Accessoires</a>
             <a href="ateliers.php">Ateliers</a>
             <a href="presentation.php">Présentation</a>
-            <a href="#">Contact</a>
+            <a href="contact.php">Contact</a>
         </div>
     </div>
     <nav class="menu">
