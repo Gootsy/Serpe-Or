@@ -18,7 +18,7 @@
         </div>
         <div class="icons">
             <a href="#"><i class="fa-solid fa-circle-user"></i></a>
-            <a href="#"><i class="fa-solid fa-basket-shopping"></i></a>
+            <a href="panier.php"><i class="fa-solid fa-basket-shopping"></i></a>
             <a href="#" id="navTrigger"><i class="fa-solid fa-bars"></i></a>
         </div>
     </nav>
