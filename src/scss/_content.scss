@@ -310,7 +310,8 @@ h3{
   align-items: center;
   width: 30%;
   p{
-    margin: 3%;
+    line-height: 1.75rem;
+    margin: 0;
   }
 }
 .detail-title{
@@ -318,6 +319,7 @@ h3{
 }
 .card .button{
   margin: 5% auto ;
+  padding: 2%;
 }
 .suite .button{
   margin: 7% auto;
@@ -481,7 +483,7 @@ h3{
 }
 #produit aside .fond-img-left img, #accessoires aside .fond-img-left img{
   opacity: 1;
-  margin-top: -2%;
+  margin-top: 6%;
 }
 .container-cartes{
   width: 75%;
