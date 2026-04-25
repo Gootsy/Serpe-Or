@@ -1,0 +1,131 @@
+@use "variables" as var;
+
+.panier{
+    padding: 8% 3% 8%;
+    form{
+        width: 100%;
+        text-align: center;
+        .panier-container{
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            .panier-produits{
+                display: flex;
+                flex-direction: row;
+                padding: 1%;
+                width: 100%;
+                .panier-img{
+                    width: 35%;
+                    aspect-ratio: 9 / 3;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: 0 20%;
+                    }
+                }
+                .panier-descrip{
+                    width: 45%;
+                    text-align: left;
+                    margin-left: 3%;
+                    h4{
+                        margin-top: 0;
+                        margin-bottom: 2%;
+                        font-size: 1.5rem;
+                    }
+                    .price{
+                        font-size: 1.2rem;
+                        font-weight: 600;
+                        small{
+                            font-weight: 500;
+                        }
+                    }
+                    .quantite{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        .qty-count{
+                            border: none;
+                            border-radius: 50%;
+                            width: 50px;
+                            height: 50px;
+                            background-color: #D9BCA3;
+                            color: white;
+                            font-size: 2.5rem;
+                            font-weight: 600;
+                            cursor: pointer;
+                        }
+                        .product-qty{
+                            border: none;
+                            background-color: transparent;
+                            text-align: center;
+                            font-size: 1.5rem;
+                            appearance: textfield;
+                            &:focus-visible{
+                                border: none;
+                            }
+                            &::-webkit-outer-spin-button,
+                            ::-webkit-inner-spin-button {
+                                appearance: none;
+                                margin: 0;
+                            }
+                        }
+                    }
+                }
+                .panier-delete{
+                    width: 10%;
+                    text-align: end;
+                }
+            }
+            .panier-total{
+                width: 40%;
+                display: block;
+                border-left: 1px solid var.$color-vert;
+                padding-left: 1%;
+                .total{
+                    font-size: 1.2rem;
+                    width: 100%;
+                    text-align: start;
+                    border-collapse: collapse;
+                    td{
+                        padding: 2%;
+                    }
+                    td:nth-child(even){
+                        font-weight: 600;
+                        text-align: end;
+                    }
+                    .ttc{
+                        background-color: var.$bg-vert;
+                        color: var.$color-sable;
+                    }
+                }
+                .panier-order-btn{
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 4%;
+                    font-size: 1.2rem;
+                    .invite, .connecte{
+                        display: inline;
+                        padding: 5%;
+                    }
+                    .invite{
+                            color: var.$color-vert;
+                            &:hover{
+                                color: var.$color-sable;
+                            }
+                        }
+                        .connecte{
+                            color: var.$color-sable;
+                            background-color: var.$bg-vert;
+                            &:hover{
+                                color: white;
+                            }
+                        }
+                }
+            }
+        }
+    }
+    .recommandation{
+        margin: 5% 10%;
+    }
+}

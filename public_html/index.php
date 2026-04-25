@@ -49,31 +49,31 @@
             <section class="categorie">
                 <div class="categorie-box">
                     <div class="slide-container">
-                        <div class="slide">
+                        <div class="slide" id="inside">
                             <img src="<?php echo vite_get_asset('content/luisa-brimble-1KYprL0KevE-unsplash.jpg'); ?>" alt="Intérieur">
                             <div class="category-overlay">
                                 <a href="#">Intérieur</a>
                             </div>
                         </div>
-                        <div class="slide">
+                        <div class="slide" id="outside">
                             <img src="<?php echo vite_get_asset('content/robin-wersich-Q0IrpWQIMR4-unsplash.jpg'); ?>" alt="Extérieur">
                             <div class="category-overlay">
                                 <a href="#">Extérieur</a>
                             </div>
                         </div>
-                        <div class="slide">
+                        <div class="slide" id="terra">
                             <img src="<?php echo vite_get_asset('content/terrarium-demo.jpg'); ?>" alt="Terrarium">
                             <div class="category-overlay">
                                 <a href="#">Terrarium</a>
                             </div>
                         </div>
-                        <div class="slide">
+                        <div class="slide" id="arom">
                             <img src="<?php echo vite_get_asset('content/elias-morr-dyQuGkZMLkk-unsplash.jpg'); ?>" alt="Plantes aromatiques">
                             <div class="category-overlay">
                                 <a href="#">Plantes aromatiques</a>
                             </div>
                         </div>
-                        <div class="slide">
+                        <div class="slide" id="tool">
                             <img src="<?php echo vite_get_asset('content/kaufmann-mercantile-a7Woj8W6J0s-unsplash.jpg'); ?>" alt="Accessoires">
                             <div class="category-overlay">
                                 <a href="#">Accessoires</a>
@@ -100,7 +100,7 @@
                 <img src="<?php echo vite_get_asset('content/feuille.png'); ?>" alt="">
             </div>
             <section class="new">
-                <h2>Arrivages:</h2>
+                <h2>Arrivages</h2>
                 <div class="container-card">
                     <?php for ($i=0;$i<3;$i++){
                         include(__DIR__.'../includes/parts/carte.php');

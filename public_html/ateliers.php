@@ -28,10 +28,10 @@
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam, eum nihil, nesciunt vitae harum dicta dolores quos sapiente facere ullam rerum distinctio, esse optio doloremque! Omnis corporis repudiandae deleniti sint.</p>
                                 <div class="atelier-infor">
                                     <div class="infor">
-                                        <p>Places restantes: <span>8</span></p>
-                                        <p>Dates: <span>01-01-27</span></p>
-                                        <p>Horaires: <span>14h30</span></p>
-                                        <p>Prix: <span>25€</span></p>
+                                        <p><i class="fa-solid fa-chair"></i>Places restantes: <span>8</span></p>
+                                        <p><i class="fa-regular fa-calendar-days"></i>Dates: <span>01-01-27</span></p>
+                                        <p><i class="fa-regular fa-clock"></i>Horaires: <span>14h30</span></p>
+                                        <p><i class="fa-solid fa-ticket"></i>Prix: <span>25€</span></p>
                                     </div>
                                     <div class="infor-btn">
                                         <a href="atelier-detail.php">Réservez maintenant</a>
@@ -46,10 +46,10 @@
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam, eum nihil, nesciunt vitae harum dicta dolores quos sapiente facere ullam rerum distinctio, esse optio doloremque! Omnis corporis repudiandae deleniti sint.</p>
                                 <div class="atelier-infor">
                                     <div class="infor">
-                                        <p>Places restantes: <span>8</span></p>
-                                        <p>Dates: <span>01-01-27</span></p>
-                                        <p>Horaires: <span>14h30</span></p>
-                                        <p>Prix: <span>25€</span></p>
+                                        <p><i class="fa-solid fa-chair"></i>Places restantes: <span>8</span></p>
+                                        <p><i class="fa-regular fa-calendar-days"></i>Dates: <span>01-01-27</span></p>
+                                        <p><i class="fa-regular fa-clock"></i>Horaires: <span>14h30</span></p>
+                                        <p><i class="fa-solid fa-ticket"></i>Prix: <span>25€</span></p>
                                     </div>
                                     <div class="infor-btn">
                                         <a href="atelier-detail.php">Réservez maintenant</a>
@@ -64,10 +64,10 @@
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam, eum nihil, nesciunt vitae harum dicta dolores quos sapiente facere ullam rerum distinctio, esse optio doloremque! Omnis corporis repudiandae deleniti sint.</p>
                                 <div class="atelier-infor">
                                     <div class="infor">
-                                        <p>Places restantes: <span>8</span></p>
-                                        <p>Dates: <span>01-01-27</span></p>
-                                        <p>Horaires: <span>14h30</span></p>
-                                        <p>Prix: <span>25€</span></p>
+                                        <p><i class="fa-solid fa-chair"></i>Places restantes: <span>8</span></p>
+                                        <p><i class="fa-regular fa-calendar-days"></i>Dates: <span>01-01-27</span></p>
+                                        <p><i class="fa-regular fa-clock"></i>Horaires: <span>14h30</span></p>
+                                        <p><i class="fa-solid fa-ticket"></i>Prix: <span>25€</span></p>
                                     </div>
                                     <div class="infor-btn">
                                         <a href="atelier-detail.php">Réservez maintenant</a>
@@ -82,10 +82,10 @@
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam, eum nihil, nesciunt vitae harum dicta dolores quos sapiente facere ullam rerum distinctio, esse optio doloremque! Omnis corporis repudiandae deleniti sint.</p>
                                 <div class="atelier-infor">
                                     <div class="infor">
-                                        <p>Places restantes: <span>8</span></p>
-                                        <p>Dates: <span>01-01-27</span></p>
-                                        <p>Horaires: <span>14h30</span></p>
-                                        <p>Prix: <span>25€</span></p>
+                                        <p><i class="fa-solid fa-chair"></i>Places restantes: <span>8</span></p>
+                                        <p><i class="fa-regular fa-calendar-days"></i>Dates: <span>01-01-27</span></p>
+                                        <p><i class="fa-regular fa-clock"></i>Horaires: <span>14h30</span></p>
+                                        <p><i class="fa-solid fa-ticket"></i>Prix: <span>25€</span></p>
                                     </div>
                                     <div class="infor-btn">
                                         <a href="atelier-detail.php">Réservez maintenant</a>

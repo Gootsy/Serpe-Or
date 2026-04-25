@@ -1,6 +1,6 @@
 @use "variables" as var;
 
-#produit-detail{
+#produit-detail, #atelier-detail{
     padding: 10%;
     .detail-container{
         display: flex;
@@ -48,11 +48,12 @@
                     text-align: center;
                     margin-left: -8%;
                     width: 166%;
-                    height: 75px;
+                    height: 85px;
                     list-style-type: none;
                     overflow: hidden;
                     li{
                         width: fit-content;
+                        margin: 1%;
                         label{
                             cursor: pointer;
                             img{
@@ -101,7 +102,7 @@
                 display: grid;
                 grid-template-columns: repeat(3,1fr);
                 text-align: center;
-                margin: 2%;
+                margin: 7% auto;
                 i{
                     font-size: 1.5rem;
                 }
@@ -111,7 +112,7 @@
                 }
             }
             .order{
-                width: 70%;
+                width: 90%;
                 margin: auto;
                 border-radius: 20px;
                 background-color: #C49373;
@@ -165,6 +166,17 @@
                             ::-webkit-inner-spin-button {
                                 appearance: none;
                                 margin: 0;
+                            }
+                        }
+                    }
+                    .atelier-detail{
+                        display: flex;
+                        flex-direction: row;
+                        .order-detail{
+                            width: 50%;
+                            display: block;
+                            span{
+                                color: #377211;
                             }
                         }
                     }

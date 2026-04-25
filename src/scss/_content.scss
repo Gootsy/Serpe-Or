@@ -208,8 +208,7 @@ h3{
   opacity:0;
 }
 .category-overlay a{
-  padding: 30% 20%;
-  margin: auto;
+  padding: 38% 32%;
   color: white !important;
   font-size: xx-large;
 }
@@ -232,11 +231,17 @@ h3{
   margin: 1%;
 }
 .pagination .pagination-bullet:hover{ // input radio comme gallery
+  
+}
+.categorie:has(#inside:hover) .pagination-bullet:nth-child(1),
+.categorie:has(#outside:hover) .pagination-bullet:nth-child(2),
+.categorie:has(#terra:hover) .pagination-bullet:nth-child(3),
+.categorie:has(#arom:hover) .pagination-bullet:nth-child(4),
+.categorie:has(#tool:hover) .pagination-bullet:nth-child(5){
   width: 30px;
   background-color: #C49373;
   opacity: 1;
 }
-
 
 .fond-img-left img{
   opacity: 0.25;
@@ -296,7 +301,7 @@ h3{
 .details{
   display: flex;
   justify-content: space-around;
-  margin: 5%;
+  margin: 5% 5% 10%;
 }
 .detail{
   display: flex;
@@ -304,6 +309,9 @@ h3{
   justify-content: space-between;
   align-items: center;
   width: 30%;
+  p{
+    margin: 3%;
+  }
 }
 .detail-title{
   font-weight: 600;
@@ -500,6 +508,7 @@ h3{
     text-align: center;
   }
   .atelier{
+    margin: 0.5% 0;
     width: 100%;
     height: 450px;
     img{
@@ -528,8 +537,9 @@ h3{
         .infor{
           font-weight: 600;
           width: 50%;
-          span{
+          i, span{
             color: #377211;
+            margin: 1%;
           }
         }
         .infor-btn{ 
@@ -537,9 +547,9 @@ h3{
           a{
             color: #377211;
             background-color: #D9BCA3;
-            padding: 4%;
+            font-size: 1.5rem;
+            padding: 10%;
             border-radius: 20px;
-            width: 20%;
             &:hover{
               background-color: #C49373;
             }
@@ -656,7 +666,7 @@ h3{
       img{
         opacity: 0.8;
         width: 22%;
-        height: 44%;
+        height: 38%;
         margin-top: -8%;
         margin-right: -4%;
       }
@@ -679,19 +689,15 @@ h3{
         input{
           border-radius: 20px;
           border: none;
-          &::placeholder{
-            margin: 3%;
-          }
+          padding: 3%;
         }
       }
       textarea{
-        margin-bottom: 2%;
+        margin: 3% 0;
         height: 123px;
         border-radius: 20px;
         border: none;
-        &::placeholder{
-          padding: 5%;
-        }
+        padding: 3%;
       }
       input[type="submit"]{
         width: 40%;
@@ -706,6 +712,59 @@ h3{
           color: #377211;
         }
       }
+    }
+  }
+}
+
+
+/*INSCRIPTION*/
+#inscription{
+  padding: 10%;
+  .inscription-container{
+    background-color: var.$bg-sable;
+    border-radius: 20px;
+    padding: 3% 10%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    position: relative;
+    .connexion, .inscription{
+      width: 40%;
+      padding: 3% 10%;
+      margin: 0% auto;
+      form{
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        text-align: center;
+        color: #377211;
+        input{
+          margin: 3% 0;
+          border-radius: 20px;
+          border: none;
+          padding: 3%;
+          color: #C49373;
+          &[type="submit"]{
+            background-color: #C49373;
+            color: black;
+            cursor: pointer;
+            &:hover{
+              color: #377211;
+            }
+          }
+        }
+      }
+      .fond-img-left img{
+        opacity: 0.7;
+        left: 2%;
+        bottom: -20%;
+        height: 60%;
+      }
+    }
+    .connexion{
+      border-right: 2px solid #377211;
     }
   }
 }

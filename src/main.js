@@ -36,26 +36,26 @@ boutons.forEach((bouton) => {
 });
 
 /*CAROUSEL*/
-// window.onload = function () {
-//     const carousels = Array.from(document.querySelectorAll(".carousel"));
+window.onload = function () {
+    const carousels = Array.from(document.querySelectorAll(".carousel"));
 
-//     if (carousels.length) {
-//         carousels.forEach((carousel) => {
-//             const slideContainer = carousel.querySelector(".controls");
-//             const slides = carousel.querySelectorAll(".slide-img");
+    if (carousels.length) {
+        carousels.forEach((carousel) => {
+            const slideContainer = carousel.querySelector(".controls");
+            const slides = carousel.querySelectorAll(".slide-img");
 
-//             const slideContainerWidth = slideContainer.offsetWidth;
-//             const scrollIncrement = slideContainerWidth / slides.length;
-//             const previousBtn = carousel.querySelector(".previous");
-//             const forwardBtn = carousel.querySelector(".forwards");
+            const slideContainerWidth = slideContainer.offsetWidth;
+            const scrollIncrement = slideContainerWidth / slides.length;
+            const previousBtn = carousel.querySelector(".previous");
+            const forwardBtn = carousel.querySelector(".forwards");
 
-//             forwardBtn.addEventListener("click", () => {
-//                 slideContainer.scrollBy(scrollIncrement, 0);
-//             });
+            forwardBtn.addEventListener("click", () => {
+                slideContainer.scrollBy(scrollIncrement, 0);
+            });
 
-//             previousBtn.addEventListener("click", () => {
-//                 slideContainer.scrollBy(scrollIncrement * -1, 0);
-//             });
-//         });
-//     }
-// };
+            previousBtn.addEventListener("click", () => {
+                slideContainer.scrollBy(scrollIncrement * -1, 0);
+            });
+        });
+    }
+};
