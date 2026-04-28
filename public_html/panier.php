@@ -18,15 +18,15 @@
     <?php include_once(__DIR__ . '/includes/parts/menu.php') ?>
     <main class="panier">
         <form action="" method="post">
-            <h3>Votre panier</h3>
+            <h2>Votre panier</h2>
             <section class="panier-container">
                 <div class="panier-produits">
                     <div class="panier-img">
                         <img src="<?php echo vite_get_asset('produits/feey-bwsTJMnhcwE-unsplash.jpg'); ?>" alt="">
                     </div>
                     <div class="panier-descrip">
-                        <h4>Monstera</h4>
-                        <p class="price">35€ <small>(à l'unité)</small></ class="price">
+                        <h3>Monstera</h3>
+                        <p class="price">35€ <small>(à l'unité)</small></p>
                         <div class="order-detail">
                             <p>Quantité:</p>
                             <div class="quantite">

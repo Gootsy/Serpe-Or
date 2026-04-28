@@ -770,3 +770,73 @@ h3{
     }
   }
 }
+
+
+/*PROFIL*/
+#profil{
+  padding: 10% 5%;
+}
+/*COORDONNEE*/
+.profil-coordonnee{
+  background-color: var.$bg-ocre;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+  .profil-img{
+    clip-path: circle(40%);
+    width: 30%;
+    height: 350px;
+    img{
+      width: 100%;
+      object-fit: cover;
+      margin-top: -40%;
+    }
+  }
+  .profil-adresse{
+    margin: auto 2%;
+    width: 35%;
+  }
+  .fond-img-right{
+    width: 33%;
+    position: relative;
+    margin-top: -6%;
+    img{
+      opacity: 0.7;
+      width: 100%;
+    }
+  }
+  .edit{
+    position: absolute;
+    z-index: 99;
+    right: 2%;
+    top: 2%;
+    padding: 1%;
+    font-size: 1.3rem;
+  }
+}
+/*COMMANDE-RECAP*/
+.profil-commande{
+  margin-top: 2%;
+  .recap-commande{
+    display: block;
+    .recap-prods{
+      display: flex;
+      flex-direction: row;
+      .recap-prod{
+        display: inline-flex;
+        .recap-img{
+          width: 20%;
+          aspect-ratio: 5 / 2;
+          img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+          }
+        }
+      }
+    }
+  }
+}
