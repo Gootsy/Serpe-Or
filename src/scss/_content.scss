@@ -809,7 +809,7 @@ h3{
   }
   .edit{
     position: absolute;
-    z-index: 99;
+    z-index: 1;
     right: 2%;
     top: 2%;
     padding: 1%;
@@ -819,21 +819,53 @@ h3{
 /*COMMANDE-RECAP*/
 .profil-commande{
   margin-top: 2%;
+  h2{
+    text-align: center;
+  }
   .recap-commande{
     display: block;
+    margin-bottom: 2%;
     .recap-prods{
       display: flex;
       flex-direction: row;
       .recap-prod{
         display: inline-flex;
+        width: 70%;
         .recap-img{
-          width: 20%;
+          width: 30%;
           aspect-ratio: 5 / 2;
           img{
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center;
+          }
+        }
+        .recap-txt{
+          width: 40%;
+          margin-bottom: 2%;
+          margin-left: 2%;
+          h3{
+            margin: 0;
+          }
+        }
+      }
+      .recap-total{
+        width: 30%;
+        border-left: 2px solid #377211;
+        padding-left: 2%;
+        table{
+          width: 100%;
+          border-collapse: collapse;
+          td:nth-child(2){
+            text-align: end;
+          }
+          td{
+            padding: 2%;
+          }
+          .ttc{
+            background-color: #377211;
+            color: #D9BCA3;
           }
         }
       }

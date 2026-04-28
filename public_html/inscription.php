@@ -19,7 +19,7 @@
     <main id="inscription">
         <div class="inscription-container">
             <div class="connexion">
-                <form action="" method="POST">
+                <form action="profil.php" method="POST">
                     <h3>Connection</h3>
                     <input type="email" name="email" id="email" placeholder="Email">
                     <input type="password" name="password" id="psw" placeholder="Mot de passe">
@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="inscription">
-                <form action="" method="post">
+                <form action="profil.php" method="post">
                     <h3>Créer son compte</h3>
                     <input type="text" name="prenom" id="prenom" placeholder="Prénom">
                     <input type="text" name="nom" id="nom" placeholder="Nom">
