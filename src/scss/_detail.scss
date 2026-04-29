@@ -7,7 +7,7 @@
         flex-direction: row;
         .detail-gallery{
             width: 40%;
-            margin: auto;
+            margin: 0% auto;
             overflow: hidden;
             position: relative;
             input[type="radio"]{
@@ -41,19 +41,23 @@
                 transform: translateX(-200%);
             }
             .controls{
+                overflow-x: scroll;
+                scrollbar-width: none;
+                position: relative;
                 ul{
+                    position: relative;
                     display: flex;
                     flex-direction: row;
                     justify-content: space-around;
                     text-align: center;
                     margin-left: -8%;
-                    width: 166%;
+                    width: 172%;
                     height: 85px;
                     list-style-type: none;
                     overflow: hidden;
                     li{
                         width: fit-content;
-                        margin: 1%;
+                        padding-right: 2%;
                         label{
                             cursor: pointer;
                             img{
@@ -65,44 +69,47 @@
                         }
                     }
                 }
-            }
-            .actions{
-                width: 100%;
-                    .previous,
+                .actions{
+                    width: 100%;
+                        .previous,
+                        .forwards {
+                        font-size: 1.5rem;
+                        font-weight: 600;
+                        display: grid;
+                        place-content: center;
+                        cursor: pointer;
+                        position: absolute;
+                        bottom: 40%;
+                        border: 0;
+                        border-radius: 20px;
+                        background-color: #dfe7da;
+                        color: #377211;
+                        padding: 0 1.4%;
+                        &:hover{
+                            background-color: white;
+                        }
+                    }
+                    .previous {
+                        left: 5px;
+                    }
                     .forwards {
-                    font-size: 1.5rem;
-                    font-weight: 600;
-                    display: grid;
-                    place-content: center;
-                    cursor: pointer;
-                    position: absolute;
-                    bottom: 5%;
-                    border: 0;
-                    border-radius: 20px;
-                    background-color: #dfe7da;
-                    color: #377211;
-                    padding: 0 1.4%;
-                    &:hover{
-                        background-color: white;
+                        right: 5px;
                     }
                 }
-                .previous {
-                    left: 5px;
-                }
-                .forwards {
-                    right: 5px;
-                }
             }
+            
         }
         .detail-article{
             width: 45%;
             font-size: 0.9rem;
-            margin: auto;
+            margin: 0% auto;
+            p{
+                margin-bottom: 7%;
+            }
             .article-icons{
                 display: grid;
                 grid-template-columns: repeat(3,1fr);
                 text-align: center;
-                margin: 7% auto;
                 i{
                     font-size: 1.5rem;
                 }
@@ -113,7 +120,7 @@
             }
             .order{
                 width: 90%;
-                margin: auto;
+                margin: 7% auto;
                 border-radius: 20px;
                 background-color: #C49373;
                 box-shadow: 5px 5px 5px rgba(90, 89, 89, 0.656);

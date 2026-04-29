@@ -62,40 +62,7 @@
                 </div>
                 <article class="detail-article">
                     <h3>Monstera</h3>
-                    <h4>Titre latin</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos veritatis totam tempore inventore debitis mollitia accusantium animi deleniti ipsum nemo velit possimus rem a natus, culpa in. Dignissimos, eveniet iure! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam iste aperiam porro possimus, tenetur mollitia asperiores! Illo quae deleniti rem, odit eveniet cum obcaecati ducimus eaque error, dolores hic alias.</p>
-                    <div class="article-icons">
-                        <div class="icon">
-                            <i class="fa-solid fa-ruler-vertical"></i>
-                            <p class="icon-title">Hauteur de pot</p>
-                            <p>00cm</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa-solid fa-ruler-horizontal"></i>
-                            <p class="icon-title">Largeur de pot</p>
-                            <p>00cm</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa-solid fa-cloud-sun"></i>
-                            <p class="icon-title">Exposition</p>
-                            <p>Lumière directe et abondante</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa-solid fa-hand-holding-heart"></i>
-                            <p class="icon-title">Entretien</p>
-                            <p>Difficile</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa-solid fa-droplet"></i>
-                            <p class="icon-title">Humidité</p>
-                            <p>50%</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa-solid fa-shower"></i>
-                            <p class="icon-title">Arrosage</p>
-                            <p>1x/sem</p>
-                        </div>
-                    </div>
                     <div class="order">
                         <form action="" method="post">
                             <p class="price">35€</p>
@@ -126,7 +93,6 @@
                 </div>
             </section>
         </main>
-
         <?php include_once(__DIR__.'../includes/parts/footer.php'); ?>
     </body>
 </html>

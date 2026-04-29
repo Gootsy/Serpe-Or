@@ -76,7 +76,7 @@
                         <div class="slide" id="tool">
                             <img src="<?php echo vite_get_asset('content/kaufmann-mercantile-a7Woj8W6J0s-unsplash.jpg'); ?>" alt="Accessoires">
                             <div class="category-overlay">
-                                <a href="#">Accessoires</a>
+                                <a href="accessoires.php">Accessoires</a>
                             </div>
                         </div>
                     </div>

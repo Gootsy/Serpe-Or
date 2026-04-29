@@ -36,26 +36,34 @@ boutons.forEach((bouton) => {
 });
 
 /*CAROUSEL*/
-// window.onload = function () {
-//     const carousels = Array.from(document.querySelectorAll(".carousel"));
+const slide = document.querySelector(".slide-img");
+const slideContainer = document.querySelector(".controls");
+const slideWidth = slide.clientWidth;
 
-//     if (carousels.length) {
-//         carousels.forEach((carousel) => {
-//             const slideContainer = carousel.querySelector(".controls");
-//             const slides = carousel.querySelectorAll(".slide-img");
+const previousBtn = document.querySelector(".previous");
+const forwardBtn = document.querySelector(".forwards");
+forwardBtn.addEventListener("click", function(){
+    console.log(slideWidth);
+    slideContainer.scrollBy(slideWidth,0);
+})
+previousBtn.addEventListener("click", function(){
+    slideContainer.scrollBy(slideWidth * -1,0);
+})
 
-//             const slideContainerWidth = slideContainer.offsetWidth;
-//             const scrollIncrement = slideContainerWidth / slides.length;
-//             const previousBtn = carousel.querySelector(".previous");
-//             const forwardBtn = carousel.querySelector(".forwards");
+/*BOUTON QUANTITE*/
+document.querySelectorAll('.qty-count--add').forEach(btn => {
+    btn.addEventListener('click', function() {
+        console.log('btn+1')
+        const input = this.parentElement.querySelector('.product-qty');
+        input.value++;
+        updateTotal();
+    });
+});
 
-//             forwardBtn.addEventListener("click", () => {
-//                 slideContainer.scrollBy(scrollIncrement, 0);
-//             });
-
-//             previousBtn.addEventListener("click", () => {
-//                 slideContainer.scrollBy(scrollIncrement * -1, 0);
-//             });
-//         });
-//     }
-// };
+document.querySelectorAll('.qty-count--minus').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const input = this.parentElement.querySelector('.product-qty');
+        if (input.value > 1) input.value--;
+        updateTotal();
+    });
+});

@@ -230,9 +230,7 @@ h3{
   opacity: 0.8;
   margin: 1%;
 }
-.pagination .pagination-bullet:hover{ // input radio comme gallery
-  
-}
+
 .categorie:has(#inside:hover) .pagination-bullet:nth-child(1),
 .categorie:has(#outside:hover) .pagination-bullet:nth-child(2),
 .categorie:has(#terra:hover) .pagination-bullet:nth-child(3),

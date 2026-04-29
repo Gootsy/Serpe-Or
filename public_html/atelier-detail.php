@@ -49,15 +49,16 @@
                             <li class="slide-img"><label for="img4"><img src="<?= vite_get_asset('ateliers/terrarium-demo.jpg'); ?>" alt=""></label></li>
                             <li class="slide-img"><label for="img5"><img src="<?= vite_get_asset('ateliers/terrarium-demo.jpg'); ?>" alt=""></label></li>
                         </ul>
-                    </div>
-                    <div class="actions">
-                        <button type="button" class="previous" aria-label="Previous slide">
-                        <
-                        </button>
-                        <button type="button" class="forwards" aria-label="Next slide">
-                        >
-                        </button>
-                    </div>
+                        <div class="actions">
+                            <button type="button" class="previous" aria-label="Previous slide">
+                            <
+                            </button>
+                            <button type="button" class="forwards" aria-label="Next slide">
+                            >
+                            </button>
+                        </div>
+                        </div>
+                    
                 </div>
                 <article class="detail-article">
                     <h3>Monstera</h3>
