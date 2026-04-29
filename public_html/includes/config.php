@@ -8,3 +8,6 @@ define('APP_ENV', 'dev');
 // A MODIFIER
 // Le chemin racine de ton projet pour éviter les erreurs de liens
 define('SITE_URL', '/vite');
+
+
+
