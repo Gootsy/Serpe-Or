@@ -1,4 +1,10 @@
-<?php require_once __DIR__ . '/includes/init.php'; ?>
+<?php 
+require_once __DIR__ . '/includes/init.php'; 
+require_once __DIR__ . '/includes/database.php';
+
+$plantes = getPlants();
+$plante = null;
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -111,11 +117,27 @@
             </aside>
             <section class="container-cartes">
                 
-                <?php for ($i=0;$i<12;$i++){
+                <?php
+                $error = false;
+                if ($error === true){
+                ?>
+                <div class="error">
+                    <p>Veuillez nous excuser. Nos produits sont momentanément invalides...</p>
+                </div>
+                <?php
+                }
+                else{
+                    $show = 0;
+                    foreach($plantes as $plante){
                         include(__DIR__.'../includes/parts/carte.php');
+                        $show++;
+                        if($show>=12){
+                            break;
+                        }
                     }
-                    ?>
-                
+                }
+                ?>
+
             </section>
         </main>
         <?php include_once(__DIR__.'../includes/parts/footer.php'); ?>
