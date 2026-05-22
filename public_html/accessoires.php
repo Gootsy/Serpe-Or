@@ -1,4 +1,9 @@
-<?php require_once __DIR__ . '/includes/init.php'; ?>
+<?php 
+require_once __DIR__ . '/includes/init.php'; 
+require_once __DIR__ . '/includes/database.php';
+
+$accessoires = getAccessoires();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -24,23 +29,35 @@
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
                         <div class="line dropdown">
-                            <button type="button" class="dropbtn">Terreau <i class="fa-solid fa-angle-down"></i></button>
+                            <button type="button" class="dropbtn">Catégories <i class="fa-solid fa-angle-down"></i></button>
                             <div class="dropdown-content">
                                 <div class="checkbox">
-                                    <input type="checkbox" name="categorie" id="inside">
-                                    <label for="inside">Intérieur</label>
+                                    <input type="checkbox" name="categorie" id="soil">
+                                    <label for="soil">Terreau</label>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="checkbox" name="categorie" id="outside">
-                                    <label for="outside">Extérieur</label>
-                                </div>
-                                <div class="checkbox">
-                                    <input type="checkbox" name="categorie" id="universel">
-                                    <label for="universel">Universel</label>
+                                    <input type="checkbox" name="categorie" id="pot">
+                                    <label for="pot">Pot</label>
                                 </div>
                                 <div class="checkbox">
                                     <input type="checkbox" name="categorie" id="substrat">
                                     <label for="substrat">Substrat</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" name="categorie" id="engrais">
+                                    <label for="engrais">Engrais</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" name="categorie" id="arrosoir">
+                                    <label for="arrosoir">Arrosoir</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" name="categorie" id="tuteur">
+                                    <label for="tuteur">Tuteur</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" name="categorie" id="tool">
+                                    <label for="tool">Outil</label>
                                 </div>
                             </div>
                         </div>
@@ -51,50 +68,8 @@
                                     <input type="checkbox" name="dispo" id="stock">
                                     <label for="stock">En stock</label>
                                 </div>
-                                <div class="checkbox">
-                                    <input type="checkbox" name="dispo" id="rupture">
-                                    <label for="rupture">Rupture</label>
-                                </div>
                             </div>
-                        </div>
-                        <div class="line dropdown">
-                            <button type="button" class="dropbtn">Outils <i class="fa-solid fa-angle-down"></i></button>
-                            <div class="dropdown-content">
-                                <div class="checkbox">
-                                    <input type="checkbox" name="outils" id="arrosoir">
-                                    <label for="arrosoir">Arrosoir</label>
-                                </div>
-                                <div class="checkbox">
-                                    <input type="checkbox" name="outils" id="vapo">
-                                    <label for="vapo">Vaporisateur</label>
-                                </div>
-                                <div class="checkbox">
-                                    <input type="checkbox" name="outils" id="tuteur">
-                                    <label for="tuteur">Tuteur</label>
-                                </div>
-                                <div class="checkbox">
-                                    <input type="checkbox" name="outils" id="tool">
-                                    <label for="tool">Outil</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="line dropdown">
-                            <button type="button" class="dropbtn">Cache pot <i class="fa-solid fa-angle-down"></i></button>
-                            <div class="dropdown-content">
-                                <div class="checkbox">
-                                    <input type="checkbox" name="taille" id="pousse">
-                                    <label for="pousse">5-15cm</label>
-                                </div>
-                                <div class="checkbox">
-                                    <input type="checkbox" name="taille" id="middle">
-                                    <label for="middle">20-30cm</label>
-                                </div>
-                                <div class="checkbox">
-                                    <input type="checkbox" name="taille" id="shadow">
-                                    <label for="shadow">Plus +</label>
-                                </div>
-                            </div>
-                        </div>
+                        </div>                        
                         <div class="filtre-btn">
                             <input type="reset" value="Réinitialiser">
                             <input type="submit" value="Filtrer">
@@ -107,10 +82,26 @@
             </aside>
             <section class="container-cartes">
                 
-                <?php for ($i=0;$i<12;$i++){
-                        include(__DIR__.'../includes/parts/carte.php');
+                <?php
+                $error = false;
+                if ($error === true){
+                ?>
+                <div class="error">
+                    <p>Veuillez nous excuser. Nos produits sont momentanément invalides...</p>
+                </div>
+                <?php
+                }
+                else{
+                    $show = 0;
+                    foreach($accessoires as $accessoire){
+                        include(__DIR__.'../includes/parts/carte-acces.php');
+                        $show++;
+                        if($show>=12){
+                            break;
+                        }
                     }
-                    ?>
+                }
+                ?>
                 
             </section>
         </main>

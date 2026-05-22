@@ -120,7 +120,7 @@ $plante = null;
                 else{
                     $show = 0;
                     foreach($plantes as $plante){
-                        include(__DIR__.'../includes/parts/carte.php');
+                        include(__DIR__.'../includes/parts/carte-plant.php');
                         $show++;
                         if($show>=3){
                             break;

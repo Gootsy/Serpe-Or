@@ -9,7 +9,6 @@ if ($id) {
 } else {
     die("ID not found");
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -17,7 +16,7 @@ if ($id) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Serpe d'Or - Produit</title>
+    <title>La Serpe d'Or - <?= $plante['name'] ?></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
@@ -140,7 +139,7 @@ if ($id) {
             <h3>Ce que nous vous recommandons avec ce produit:</h3>
             <div class="container-card">
                 <?php for ($i = 0; $i < 3; $i++) {
-                    include(__DIR__ . '../includes/parts/carte.php');
+                    include(__DIR__ . '../includes/parts/carte-acces.php');
                 }
                 ?>
             </div>

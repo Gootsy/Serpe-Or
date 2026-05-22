@@ -19,7 +19,7 @@
                 display: flex;
                 transition: transform 5s cubic-bezier(0.075, 0.82, 0.165, 1);
                 .container-img{
-                    width: 100%;
+                    width: 20%;
                     height: 100%;
                     padding: 0 0.33%;
                     img{
@@ -57,13 +57,11 @@
                     flex-direction: row;
                     justify-content: space-around;
                     text-align: center;
-                    width: 166.66%;
                     height: 85px;
                     list-style-type: none;
                     overflow: hidden;
                     padding: 0;
                     li{
-                        width: 20%;
                         padding: 0 1%;
                         label{
                             cursor: pointer;
@@ -224,5 +222,17 @@
     }
     .recommandation{
         margin: 6% 4% 0;
+    }
+}
+#produit-detail ul{
+    width: 166.66%;
+    li{
+        width: 20%;
+    }
+}
+#atelier-detail ul{
+    width: 100%;
+    li{
+        width: 33%;
     }
 }

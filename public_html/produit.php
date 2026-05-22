@@ -3,7 +3,7 @@ require_once __DIR__ . '/includes/init.php';
 require_once __DIR__ . '/includes/database.php';
 
 $plantes = getPlants();
-$plante = null;
+// $plante = null;
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -11,7 +11,7 @@ $plante = null;
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>La Serpe d'Or - Produits</title>
+        <title>La Serpe d'Or - Plantes</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
@@ -129,7 +129,7 @@ $plante = null;
                 else{
                     $show = 0;
                     foreach($plantes as $plante){
-                        include(__DIR__.'../includes/parts/carte.php');
+                        include(__DIR__.'../includes/parts/carte-plant.php');
                         $show++;
                         if($show>=12){
                             break;

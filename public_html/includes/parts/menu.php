@@ -2,7 +2,7 @@
     <div id="myNav" class="overlay-menu">
         <a href="#" class="closebtn" id="navClose"><i class="fa-solid fa-x"></i></a>
         <div class="overlay-menu-content">
-            <a href="produit.php">Produits</a>
+            <a href="produit.php">Plantes</a>
             <a href="accessoires.php">Accessoires</a>
             <a href="ateliers.php">Ateliers</a>
             <a href="presentation.php">Présentation</a>
