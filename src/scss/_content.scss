@@ -466,7 +466,10 @@ h3{
   margin-left: 5%;
   margin-right: 2%;
 }
-.filtre-btn input{
+.filtre-btn{
+  margin-top: 5%;
+}
+.filtre-btn input, .filtre-btn a{
   border-radius: 20px;
   border: none;
   background-color: #C49373;
@@ -476,7 +479,10 @@ h3{
   font-size: large;
   cursor: pointer;
 }
-.filtre-btn input:hover{
+.filtre-btn a{
+  padding: 1% 29%;
+}
+.filtre-btn input:hover, .filtre-btn a:hover{
   color: #377211;
 }
 #produit aside .fond-img-left img, #accessoires aside .fond-img-left img{

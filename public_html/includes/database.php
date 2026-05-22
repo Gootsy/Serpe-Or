@@ -4,12 +4,65 @@ require_once "config.php";
 
 function getPlants(){
     global $pdo;
-
-    $sql = "SELECT *
+    $sql = "SELECT p.*, pc.name AS nom_categorie
             FROM plantes p
-            ORDER BY p.id_plantes DESC";
-    $stmt = $pdo->query($sql);
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            JOIN plante_categories pc ON pc.id_plant_categorie = p.id_plant_categorie
+            WHERE 1=1";
+    $params = [];
+    if(!empty($_GET['plante_categories']) && is_array($_GET['plante_categories'])){
+        $categorie_filtrees = array_map('intval', $_GET['plante_categories']);
+        $placeholders = implode(',', array_fill(0, count($categorie_filtrees), '?'));
+        $sql .= " AND p.id_plant_categorie IN ($placeholders)";
+        $params = array_merge($params, $categorie_filtrees);
+    }
+    if(!empty($_GET['care']) && is_array($_GET['care'])){
+        $care_filtrees = array_map('strval', $_GET['care']);
+        $placeholders = implode(',', array_fill(0, count($care_filtrees), '?'));
+        $sql .= " AND p.care IN ($placeholders)";
+        $params = array_merge($params, $care_filtrees);
+    }
+    if(!empty($_GET['exposition']) && is_array($_GET['exposition'])){
+        $exposition_filtrees = array_map('strval', $_GET['exposition']);
+        $placeholders = implode(',', array_fill(0, count($exposition_filtrees), '?'));
+        $sql .= " AND p.exposition IN ($placeholders)";
+        $params = array_merge($params, $exposition_filtrees);
+    }
+    if (!empty($_GET['taille']) && is_array($_GET['taille'])) {
+        $conditions_taille = [];
+        
+        foreach ($_GET['taille'] as $taille) {
+            if ($taille === 'petite') {
+                $conditions_taille[] = "p.width BETWEEN ? AND ?";
+                $params[] = 3;
+                $params[] = 9;
+            }
+            elseif ($taille === 'moyenne') {
+                $conditions_taille[] = "p.width BETWEEN ? AND ?";
+                $params[] = 10;
+                $params[] = 18;
+            }
+            elseif ($taille === 'grande') {
+                $conditions_taille[] = "p.width >= ?";
+                $params[] = 19;
+            }
+        }
+        
+        // Si l'utilisateur a coché une ou plusieurs cases, on les lie avec un OR
+        // Exemple si "petite" et "moyenne" cochés : AND (width BETWEEN 3 AND 9 OR taille_pot BETWEEN 10 AND 18)
+        if (!empty($conditions_taille)) {
+            $sql .= " AND (" . implode(" OR ", $conditions_taille) . ")";
+        }
+    }
+    if (!empty($_GET['search'])) {
+        $search = '%' . trim($_GET['search']) . '%';
+        $sql .= " AND (p.name LIKE ? OR p.description LIKE ?)";
+        $params[] = $search;
+        $params[] = $search;
+    }
+    $sql .= " ORDER BY p.id_plantes DESC";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params); 
+    return $stmt->fetchAll();
 };
 
 function getPlantById($id){
@@ -65,3 +118,4 @@ function getNewAccessoires($id_categorie_principale,$id){
     $stmt -> execute([$id_categorie_principale, $id]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 };
+

@@ -23,7 +23,7 @@ $accessoires = getAccessoires();
         <main id="accessoires">
             <aside>
                 <div class="filtre">
-                    <form action="produit.php" method="get">
+                    <form action="accessoires.php" method="get">
                         <div class="line search">
                             <input type="search" name="search" id="search" placeholder="Recherche...">
                             <i class="fa-solid fa-magnifying-glass"></i>
