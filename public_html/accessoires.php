@@ -93,7 +93,7 @@ $accessoires = getAccessoires();
                 }
                 else{
                     $show = 0;
-                    foreach($accessoires as $accessoire){
+                    foreach($accessoires as $item){
                         include(__DIR__.'../includes/parts/carte-acces.php');
                         $show++;
                         if($show>=12){

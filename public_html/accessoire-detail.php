@@ -9,7 +9,8 @@ if ($id) {
 } else {
     die("ID not found");
 }
-
+$id_categorie_principale = $accessoire['id_acces_categorie'];
+$news=getNewAccessoires($id_categorie_principale, $id);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -102,8 +103,19 @@ if ($id) {
         <section class="recommandation">
             <h3>Ce que nous vous recommandons avec ce produit:</h3>
             <div class="container-card">
-                <?php for ($i = 0; $i < 3; $i++) {
-                    include(__DIR__ . '../includes/parts/carte-acces.php');
+                <?php
+                $error = false;
+                if ($error === true){
+                ?>
+                <div class="error">
+                    <p>Veuillez nous excuser. Nos produits sont momentanément invalides...</p>
+                </div>
+                <?php
+                }
+                else{
+                    foreach($news as $item){
+                        include(__DIR__.'../includes/parts/carte-acces.php');
+                    }
                 }
                 ?>
             </div>
