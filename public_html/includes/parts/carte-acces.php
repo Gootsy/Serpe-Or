@@ -3,8 +3,8 @@
         <img src="<?php echo vite_get_asset('accessoires/'. $item['image_a']); ?>" alt="">
     </div>
     <div class="card-title">
-        <h3><?= $item['name'] ?></h3>
-        <p><?= $item['price'] ?>€</p>
+        <h3><?= htmlspecialchars($item['name']) ?></h3>
+        <p><?= number_format($item['price'], 2, ',','') ?>€</p>
     </div>
     
     <div>

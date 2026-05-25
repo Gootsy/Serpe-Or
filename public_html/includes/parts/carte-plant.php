@@ -4,7 +4,7 @@
     </div>
     <div class="card-title">
         <h3><?= htmlspecialchars($plante['name']) ?></h3>
-        <p><?= number_format($plante['price']) ?>€</p>
+        <p><?= number_format($plante['price'], 2, ',','') ?>€</p>
     </div>
     <div class="details">
         <div class="detail caring">

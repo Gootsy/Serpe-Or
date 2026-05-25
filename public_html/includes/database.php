@@ -88,12 +88,33 @@ function getPlantAccessoires($ids){
 
 function getAccessoires(){
     global $pdo;
-
-    $sql = "SELECT *
+    $sql = "SELECT a.*, ac.name AS nom_categorie
             FROM accessoires a
-            ORDER BY a.id_accessoires DESC";
-    $stmt = $pdo->query($sql);
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            JOIN acces_categories ac ON ac.id_acces_categorie = a.id_acces_categorie
+            WHERE 1=1";
+    $params = [];
+    if(!empty($_GET['acces_categories']) && is_array($_GET['acces_categories'])){
+        $categorie_filtrees = array_map('intval', $_GET['acces_categories']);
+        $placeholders = implode(',', array_fill(0, count($categorie_filtrees), '?'));
+        $sql .= " AND a.id_acces_categorie IN ($placeholders)";
+        $params = array_merge($params, $categorie_filtrees);
+    }
+    if (!empty($_GET['stock']) && is_array($_GET['stock'])) {
+        if (in_array('dispo', $_GET['stock'])) {
+            $sql .= " AND a.stock > ?";
+            $params[] = 0;
+        }
+    }
+    if (!empty($_GET['search'])) {
+        $search = '%' . trim($_GET['search']) . '%';
+        $sql .= " AND (a.name LIKE ? OR a.description LIKE ?)";
+        $params[] = $search;
+        $params[] = $search;
+    }
+    $sql .= " ORDER BY a.id_accessoires DESC";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params); 
+    return $stmt->fetchAll();
 };
 
 function getAccessoireById($id){

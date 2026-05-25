@@ -57,12 +57,19 @@ window.addEventListener('load', () => {
         // console.log("Largeur après chargement :", liWidth);
     });
 
+});
     /*BOUTON QUANTITE*/
     document.querySelectorAll('.qty-count--add').forEach(btn => {
         btn.addEventListener('click', function () {
-            // console.log('btn+1')
+            console.log('btn+1')
             const input = this.parentElement.querySelector('.product-qty');
-            input.value++;
+            const current = parseInt(input.value);
+            const max = parseInt(input.max);
+
+            if (current < max) {
+                input.value = current + 1;
+            }
+
             updateTotal();
         });
     });
@@ -75,5 +82,3 @@ window.addEventListener('load', () => {
         });
     });
 
-
-});

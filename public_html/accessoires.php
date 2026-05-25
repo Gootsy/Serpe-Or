@@ -3,6 +3,9 @@ require_once __DIR__ . '/includes/init.php';
 require_once __DIR__ . '/includes/database.php';
 
 $accessoires = getAccessoires();
+
+$accesCategorie = $_GET['acces_categories'] ?? [];
+$stock = $_GET['stock'] ?? [];
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -25,38 +28,38 @@ $accessoires = getAccessoires();
                 <div class="filtre">
                     <form action="accessoires.php" method="get">
                         <div class="line search">
-                            <input type="search" name="search" id="search" placeholder="Recherche...">
+                            <input type="search" name="search" id="search" placeholder="Recherche..." value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
                         <div class="line dropdown">
                             <button type="button" class="dropbtn">Catégories <i class="fa-solid fa-angle-down"></i></button>
                             <div class="dropdown-content">
                                 <div class="checkbox">
-                                    <input type="checkbox" name="categorie" id="soil">
+                                    <input type="checkbox" name="acces_categories[]" value="1" id="soil" <?= in_array('1', $accesCategorie) ? 'checked' : '' ?>>
                                     <label for="soil">Terreau</label>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="checkbox" name="categorie" id="pot">
+                                    <input type="checkbox" name="acces_categories[]" value="2" id="pot" <?= in_array('2', $accesCategorie) ? 'checked' : '' ?>>
                                     <label for="pot">Pot</label>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="checkbox" name="categorie" id="substrat">
+                                    <input type="checkbox" name="acces_categories[]" value="3" id="substrat" <?= in_array('3', $accesCategorie) ? 'checked' : '' ?>>
                                     <label for="substrat">Substrat</label>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="checkbox" name="categorie" id="engrais">
+                                    <input type="checkbox" name="acces_categories[]" value="4" id="engrais" <?= in_array('4', $accesCategorie) ? 'checked' : '' ?>>
                                     <label for="engrais">Engrais</label>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="checkbox" name="categorie" id="arrosoir">
+                                    <input type="checkbox" name="acces_categories[]" value="5" id="arrosoir" <?= in_array('5', $accesCategorie) ? 'checked' : '' ?>>
                                     <label for="arrosoir">Arrosoir</label>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="checkbox" name="categorie" id="tuteur">
+                                    <input type="checkbox" name="acces_categories[]" value="6" id="tuteur" <?= in_array('6', $accesCategorie) ? 'checked' : '' ?>>
                                     <label for="tuteur">Tuteur</label>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="checkbox" name="categorie" id="tool">
+                                    <input type="checkbox" name="acces_categories[]" value="7" id="tool" <?= in_array('7', $accesCategorie) ? 'checked' : '' ?>>
                                     <label for="tool">Outil</label>
                                 </div>
                             </div>
@@ -65,13 +68,13 @@ $accessoires = getAccessoires();
                             <button type="button" class="dropbtn">Disponible <i class="fa-solid fa-angle-down"></i></button>
                             <div class="dropdown-content">
                                 <div class="checkbox">
-                                    <input type="checkbox" name="dispo" id="stock">
+                                    <input type="checkbox" name="stock[]" value="dispo" id="stock" <?= in_array('dispo', $stock) ? 'checked' : '' ?>>
                                     <label for="stock">En stock</label>
                                 </div>
                             </div>
                         </div>                        
                         <div class="filtre-btn">
-                            <input type="reset" value="Réinitialiser">
+                            <a href="accessoires.php" class="btn-reset">Réinitialiser</a>
                             <input type="submit" value="Filtrer">
                         </div>
                     </form>
