@@ -35,8 +35,6 @@ $news=getNewAccessoires($id_categorie_principale, $id);
                 <input type="radio" name="gallery" id="img1" checked>
                 <input type="radio" name="gallery" id="img2">
                 <input type="radio" name="gallery" id="img3">
-                <input type="radio" name="gallery" id="img4">
-                <input type="radio" name="gallery" id="img5">
                 <div class="viewer">
                     <?php if (!empty($accessoire['image_a'])): ?>
                         <div class="container-img">

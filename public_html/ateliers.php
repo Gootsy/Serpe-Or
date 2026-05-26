@@ -1,4 +1,9 @@
-<?php require_once __DIR__ . '/includes/init.php'; ?>
+<?php 
+require_once __DIR__ . '/includes/init.php'; 
+require_once __DIR__ . '/includes/database.php';
+
+$ateliers=getAteliers();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -21,78 +26,42 @@
                     <p>Nous vous accueillons dans nos ateliers-serres à nos divers ateliers pour un moment amical et instructif. Les places sont limitées pour vous apporter la meilleure attention à toutes vous questions, alors n’hésitez pas trop longtemps ;).</p>
                 </section>
                 <section class="atelier-container">
-                    <article class="atelier">
-                            <img src="<?= vite_get_asset('ateliers/terrarium-demo.jpg'); ?>" alt="">
-                            <div class="atelier-txt">
-                                <h3>Titre</h3>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam, eum nihil, nesciunt vitae harum dicta dolores quos sapiente facere ullam rerum distinctio, esse optio doloremque! Omnis corporis repudiandae deleniti sint.</p>
-                                <div class="atelier-infor">
-                                    <div class="infor">
-                                        <p><i class="fa-solid fa-chair"></i>Places restantes: <span>8</span></p>
-                                        <p><i class="fa-regular fa-calendar-days"></i>Dates: <span>01-01-27</span></p>
-                                        <p><i class="fa-regular fa-clock"></i>Horaires: <span>14h30</span></p>
-                                        <p><i class="fa-solid fa-ticket"></i>Prix: <span>25€</span></p>
-                                    </div>
-                                    <div class="infor-btn">
-                                        <a href="atelier-detail.php">Réservez maintenant</a>
-                                    </div>
-                                </div>
-                            </div>
-                    </article>
-                    <article class="atelier">
-                            <img src="<?= vite_get_asset('ateliers/sean-foster-drstUK2WG3Q-unsplash.jpg'); ?>" alt="">
-                            <div class="atelier-txt">
-                                <h3>Titre</h3>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam, eum nihil, nesciunt vitae harum dicta dolores quos sapiente facere ullam rerum distinctio, esse optio doloremque! Omnis corporis repudiandae deleniti sint.</p>
-                                <div class="atelier-infor">
-                                    <div class="infor">
-                                        <p><i class="fa-solid fa-chair"></i>Places restantes: <span>8</span></p>
-                                        <p><i class="fa-regular fa-calendar-days"></i>Dates: <span>01-01-27</span></p>
-                                        <p><i class="fa-regular fa-clock"></i>Horaires: <span>14h30</span></p>
-                                        <p><i class="fa-solid fa-ticket"></i>Prix: <span>25€</span></p>
-                                    </div>
-                                    <div class="infor-btn">
-                                        <a href="atelier-detail.php">Réservez maintenant</a>
+                    <?php
+                    $error = false;
+                    if ($error === true){
+                    ?>
+                    <div class="error">
+                        <p>Veuillez nous excuser. Nos atelierss sont momentanément invalides...</p>
+                    </div>
+                    <?php
+                    }
+                    else{
+                        $show = 0;
+                        foreach($ateliers as $atelier){?>
+                            <article class="atelier">
+                                <img src="<?= vite_get_asset('ateliers/' . $atelier['image_atelier_1']); ?>" alt="">
+                                <div class="atelier-txt">
+                                    <h3><?= htmlspecialchars($atelier['name_atelier']); ?></h3>
+                                    <p class="descri"><?= htmlspecialchars($atelier['intro']); ?></p>
+                                    <div class="atelier-infor">
+                                        <div class="infor">
+                                            <p><i class="fa-solid fa-chair"></i>Places restantes: <span><?= number_format($atelier['group']); ?></span></p>
+                                            <p><i class="fa-regular fa-calendar-days"></i>Dates: <span><?= date('d-m-Y', strtotime($atelier['date_atelier'])); ?></span></p>
+                                            <p><i class="fa-regular fa-clock"></i>Horaires: <span><?= date('H:i', strtotime($atelier['hour'])); ?></span></p>
+                                            <p><i class="fa-solid fa-ticket"></i>Prix: <span><?= number_format($atelier['price_atelier'], 2, ',',''); ?>€</span></p>
+                                        </div>
+                                        <div class="infor-btn">
+                                            <a href="atelier-detail.php?id=<?= $atelier['id_atelier'] ?>">Réservez maintenant</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                    </article>
-                    <article class="atelier">
-                            <img src="<?= vite_get_asset('ateliers/sean-foster-drstUK2WG3Q-unsplash.jpg'); ?>" alt="">
-                            <div class="atelier-txt">
-                                <h3>Titre</h3>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam, eum nihil, nesciunt vitae harum dicta dolores quos sapiente facere ullam rerum distinctio, esse optio doloremque! Omnis corporis repudiandae deleniti sint.</p>
-                                <div class="atelier-infor">
-                                    <div class="infor">
-                                        <p><i class="fa-solid fa-chair"></i>Places restantes: <span>8</span></p>
-                                        <p><i class="fa-regular fa-calendar-days"></i>Dates: <span>01-01-27</span></p>
-                                        <p><i class="fa-regular fa-clock"></i>Horaires: <span>14h30</span></p>
-                                        <p><i class="fa-solid fa-ticket"></i>Prix: <span>25€</span></p>
-                                    </div>
-                                    <div class="infor-btn">
-                                        <a href="atelier-detail.php">Réservez maintenant</a>
-                                    </div>
-                                </div>
-                            </div>
-                    </article>
-                    <article class="atelier">
-                            <img src="<?= vite_get_asset('ateliers/terrarium-demo.jpg'); ?>" alt="">
-                            <div class="atelier-txt">
-                                <h3>Titre</h3>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam, eum nihil, nesciunt vitae harum dicta dolores quos sapiente facere ullam rerum distinctio, esse optio doloremque! Omnis corporis repudiandae deleniti sint.</p>
-                                <div class="atelier-infor">
-                                    <div class="infor">
-                                        <p><i class="fa-solid fa-chair"></i>Places restantes: <span>8</span></p>
-                                        <p><i class="fa-regular fa-calendar-days"></i>Dates: <span>01-01-27</span></p>
-                                        <p><i class="fa-regular fa-clock"></i>Horaires: <span>14h30</span></p>
-                                        <p><i class="fa-solid fa-ticket"></i>Prix: <span>25€</span></p>
-                                    </div>
-                                    <div class="infor-btn">
-                                        <a href="atelier-detail.php">Réservez maintenant</a>
-                                    </div>
-                                </div>
-                            </div>
-                    </article>
+                            </article>
+                            <?php if($show>=6){
+                                break;
+                            }
+                        }
+                    }
+                    ?>
                 </section>
             </main>
         <?php include_once(__DIR__.'../includes/parts/footer.php'); ?>

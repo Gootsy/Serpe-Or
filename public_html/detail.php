@@ -124,15 +124,17 @@ $recommandations= getPlantAccessoires($recommandationIds);
                                 <p>Rupture de stock</p>
                             <?php endif; ?>
                         </div>
-                        <div class="order-detail">
-                            <p>Quantité:</p>
-                            <button class="qty-count qty-count--minus" commandfor="qty" command="--decrement" type="button">-</button>
-                            <input class="product-qty" type="number" id="qty" name="quantity" min="1" max="10" step="1" value="1">
-                            <button class="qty-count qty-count--add" commandfor="qty" command="--increment" type="button">+</button>
-                        </div>
-                        <div class="order-btn">
-                            <input type="submit" value="Ajouter au panier">
-                        </div>
+                        <?php if($plante['stock']>=1): ?>
+                            <div class="order-detail">
+                                <p>Quantité:</p>
+                                <button class="qty-count qty-count--minus" commandfor="qty" command="--decrement" type="button">-</button>
+                                <input class="product-qty" type="number" id="qty" name="quantity" min="1" max="10" step="1" value="1">
+                                <button class="qty-count qty-count--add" commandfor="qty" command="--increment" type="button">+</button>
+                            </div>
+                            <div class="order-btn">
+                                <input type="submit" value="Ajouter au panier">
+                            </div>
+                        <?php endif; ?>
                     </form>
                 </div>
             </article>

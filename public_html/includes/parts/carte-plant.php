@@ -3,24 +3,24 @@
         <img src="<?php echo vite_get_asset('produits/'. $plante['image_1']); ?>" alt="">
     </div>
     <div class="card-title">
-        <h3><?= htmlspecialchars($plante['name']) ?></h3>
-        <p><?= number_format($plante['price'], 2, ',','') ?>€</p>
+        <h3><?= htmlspecialchars($plante['name']); ?></h3>
+        <p><?= number_format($plante['price'], 2, ',',''); ?>€</p>
     </div>
     <div class="details">
         <div class="detail caring">
             <i class="fa-solid fa-hand-holding-heart"></i>
             <p class="detail-title">Entretien</p>
-            <p><?= htmlspecialchars($plante['care']) ?></p>
+            <p><?= htmlspecialchars($plante['care']); ?></p>
         </div>
         <div class="detail wet">
             <i class="fa-solid fa-droplet"></i>
             <p class="detail-title">Humidité</p>
-            <p><?= number_format($plante['humidity']) ?>%</p>
+            <p><?= number_format($plante['humidity']); ?>%</p>
         </div>
         <div class="detail pouring">
             <i class="fa-solid fa-shower"></i>
             <p class="detail-title">Arrosage</p>
-            <p><?= htmlspecialchars($plante['water']) ?></p>
+            <p><?= htmlspecialchars($plante['water']); ?></p>
         </div>
     </div>
     <div>

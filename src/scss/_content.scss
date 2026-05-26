@@ -542,6 +542,12 @@ h3{
       h3{
         margin: 0;
       }
+      .descri{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 95%;
+      }
       .atelier-infor{
         display: flex;
         flex-direction: row;

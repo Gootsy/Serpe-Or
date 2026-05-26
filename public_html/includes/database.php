@@ -140,3 +140,21 @@ function getNewAccessoires($id_categorie_principale,$id){
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 };
 
+function getAteliers(){
+    global $pdo;
+    $sql = "SELECT*
+            FROM ateliers ate
+            ORDER BY ate.id_atelier DESC";
+    $stmt =$pdo->query($sql);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getAtelierById($id){
+    global $pdo;
+    $sql = "SELECT *
+            FROM ateliers ate
+            WHERE ate.id_atelier=?";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([(int)$id]);
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+}
