@@ -1,4 +1,13 @@
-<?php require_once __DIR__ . '/includes/init.php'; ?>
+<?php 
+session_start();
+require_once __DIR__ . '/includes/init.php'; 
+require_once __DIR__ . '/includes/database.php';
+
+$cart = $_SESSION['cart'] ?? [];
+$transport = 10;
+$taxes = 6.35;
+$total = 0;
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -19,14 +28,27 @@
     <main class="panier">
         <form action="" method="post">
             <h2>Votre panier</h2>
+            
             <section class="panier-container">
+                <?php
+                    if (!$cart) {
+                        echo "Pas de panier pour l'instant";
+                    } else {
+                        foreach ($cart as $id => $quantity) {
+
+                            $sql = "SELECT * FROM plantes WHERE id = ?";
+                            $stmt = $pdo->prepare($sql);
+                            $stmt->execute([$id]);
+
+                            $shoe = $stmt->fetch();
+                ?>
                 <div class="panier-produits">
                     <div class="panier-img">
-                        <img src="<?php echo vite_get_asset('produits/feey-bwsTJMnhcwE-unsplash.jpg'); ?>" alt="">
+                        <img src="<?php echo vite_get_asset('produits/'.$plante['image_1']); ?>" alt="">
                     </div>
                     <div class="panier-descrip">
-                        <h3>Monstera</h3>
-                        <p class="price">35€ <small>(à l'unité)</small></p>
+                        <h3><?= $plante['name'] ?></h3>
+                        <p class="price"><?= $plante['price'] ?>€ <small>(à l'unité)</small></p>
                         <div class="order-detail">
                             <p>Quantité:</p>
                             <div class="quantite">
@@ -40,23 +62,27 @@
                         <a href="#"><i class="fa-solid fa-trash-can"></i></a>
                     </div>
                 </div>
+                <?php 
+                        $sousTotal += $plante['price'] * $quantity;
+                        } 
+                        ?>
                 <div class="panier-total">
                     <table class="total">
                         <tr>
                             <td>Sous-total</td>
-                            <td>35€</td>
+                            <td><?= $sousTotal ?>€</td>
                         </tr>
                         <tr>
                             <td>Transport</td>
-                            <td>10€</td>
+                            <td><?= $transport ?>€</td>
                         </tr>
                         <tr>
                             <td>Taxes</td>
-                            <td>6,35€</td>
+                            <td><?= $taxes ?>€</td>
                         </tr>
                         <tr class="ttc">
                             <td>Total TTC</td>
-                            <td>51,35€</td>
+                            <td><?= $sousTotal + $transport + $taxes?>€</td>
                         </tr>
                     </table>
                     <div class="panier-order-btn">
@@ -65,6 +91,7 @@
                     </div>
                 </div>
             </section>
+            <?php } ?>
         </form>
         <section class="recommandation">
             <h3>Ce que nous vous recommandons avec ce produit:</h3>
