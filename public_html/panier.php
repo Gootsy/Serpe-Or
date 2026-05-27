@@ -97,8 +97,21 @@ $total = $sousTotal + $transport + $taxes;
         <section class="recommandation">
             <h3>Ce que nous vous recommandons avec ce produit:</h3>
             <div class="container-card">
-                <?php for ($i = 0; $i < 3; $i++) {
-                    include(__DIR__ . '../includes/parts/carte.php');
+                <?php
+                $error = false;
+                if ($error === true){
+                ?>
+                <div class="error">
+                    <p>Veuillez nous excuser. Nos produits sont momentanément invalides...</p>
+                </div>
+                <?php
+                }
+                else{                    
+                    $recommandationIds=[$product['fk_id_accessoire_1'],$product['fk_id_accessoire_2'],$product['fk_id_accessoire_3']];
+                    $recommandations= getPlantAccessoires($recommandationIds);
+                    foreach($recommandations as $item){
+                        include(__DIR__.'../includes/parts/carte-acces.php');
+                    }
                 }
                 ?>
             </div>
