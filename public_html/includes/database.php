@@ -158,3 +158,44 @@ function getAtelierById($id){
             $stmt->execute([(int)$id]);
             return $stmt->fetch(PDO::FETCH_ASSOC);
 }
+
+function getCartItems($pdo, $cart){
+    $ids = array_keys($cart);
+
+    $placeholders = implode(',', array_fill(0, count($ids), '?'));
+
+    $sql = "SELECT * FROM plantes WHERE id_plantes IN ($placeholders)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($ids);
+
+    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $items = [];
+
+    foreach ($products as $product) {
+
+        $id = $product['id_plantes'];
+        $quantity = (int) $cart[$id];
+
+        $lineTotal = $product['price'] * $quantity;
+
+        $items[] = [
+            'product' => $product,
+            'quantity' => $quantity,
+            'line_total' => $lineTotal
+        ];
+    }
+
+    return $items;
+}
+
+function calculateCartTotal(array $cartItems): float
+{
+    $total = 0;
+
+    foreach ($cartItems as $item) {
+        $total += $item['line_total'];
+    }
+
+    return $total;
+}

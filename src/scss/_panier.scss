@@ -5,76 +5,85 @@
     form{
         width: 100%;
         text-align: center;
-        .panier-container{
+        .container-paniers{
             display: flex;
             flex-direction: row;
             align-items: stretch;
-            .panier-produits{
+            .panier-container{
                 display: flex;
-                flex-direction: row;
-                padding: 1%;
-                width: 100%;
-                .panier-img{
-                    width: 35%;
-                    aspect-ratio: 9 / 3;
-                    img{
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                        object-position: 0 20%;
-                    }
+                flex-direction: column;
+                width: 99.5%;
+                .vide{
+                    margin: 5% auto;
+                    font-size: 1.7rem;
                 }
-                .panier-descrip{
-                    width: 45%;
-                    text-align: left;
-                    margin-left: 3%;
-                    h4{
-                        margin-top: 0;
-                        margin-bottom: 2%;
-                        font-size: 1.5rem;
-                    }
-                    .price{
-                        font-size: 1.2rem;
-                        font-weight: 600;
-                        small{
-                            font-weight: 500;
+                .panier-produits{
+                    display: flex;
+                    flex-direction: row;
+                    padding: 1%;
+                    width: 100%;
+                    .panier-img{
+                        width: 35%;
+                        aspect-ratio: 9 / 3;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            object-position: 0 20%;
                         }
                     }
-                    .quantite{
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        .qty-count{
-                            border: none;
-                            border-radius: 50%;
-                            width: 50px;
-                            height: 50px;
-                            background-color: #D9BCA3;
-                            color: white;
-                            font-size: 2.5rem;
-                            font-weight: 600;
-                            cursor: pointer;
-                        }
-                        .product-qty{
-                            border: none;
-                            background-color: transparent;
-                            text-align: center;
+                    .panier-descrip{
+                        width: 45%;
+                        text-align: left;
+                        margin-left: 3%;
+                        h4{
+                            margin-top: 0;
+                            margin-bottom: 2%;
                             font-size: 1.5rem;
-                            appearance: textfield;
-                            &:focus-visible{
-                                border: none;
+                        }
+                        .price{
+                            font-size: 1.2rem;
+                            font-weight: 600;
+                            small{
+                                font-weight: 500;
                             }
-                            &::-webkit-outer-spin-button,
-                            ::-webkit-inner-spin-button {
-                                appearance: none;
-                                margin: 0;
+                        }
+                        .quantite{
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            .qty-count{
+                                border: none;
+                                border-radius: 50%;
+                                width: 50px;
+                                height: 50px;
+                                background-color: #D9BCA3;
+                                color: white;
+                                font-size: 2.5rem;
+                                font-weight: 600;
+                                cursor: pointer;
+                            }
+                            .product-qty{
+                                border: none;
+                                background-color: transparent;
+                                text-align: center;
+                                font-size: 1.5rem;
+                                appearance: textfield;
+                                &:focus-visible{
+                                    border: none;
+                                }
+                                &::-webkit-outer-spin-button,
+                                ::-webkit-inner-spin-button {
+                                    appearance: none;
+                                    margin: 0;
+                                }
                             }
                         }
                     }
-                }
-                .panier-delete{
-                    width: 10%;
-                    text-align: end;
+                    .panier-delete{
+                        width: 10%;
+                        text-align: end;
+                    }
                 }
             }
             .panier-total{

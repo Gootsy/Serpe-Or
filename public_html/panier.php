@@ -1,12 +1,15 @@
-<?php 
+<?php
 session_start();
-require_once __DIR__ . '/includes/init.php'; 
+require_once __DIR__ . '/includes/init.php';
 require_once __DIR__ . '/includes/database.php';
 
 $cart = $_SESSION['cart'] ?? [];
+$cartItems = getCartItems($pdo, $cart);
+$sousTotal = calculateCartTotal($cartItems);
 $transport = 10;
 $taxes = 6.35;
-$total = 0;
+$total = $sousTotal + $transport + $taxes;
+
 ?>
 
 <!DOCTYPE html>
@@ -28,71 +31,69 @@ $total = 0;
     <main class="panier">
         <form action="" method="post">
             <h2>Votre panier</h2>
-            
-            <section class="panier-container">
-                <?php
-                    if (!$cart) {
-                        echo "Pas de panier pour l'instant";
-                    } else {
-                        foreach ($cart as $id => $quantity) {
 
-                            $sql = "SELECT * FROM plantes WHERE id = ?";
-                            $stmt = $pdo->prepare($sql);
-                            $stmt->execute([$id]);
-
-                            $shoe = $stmt->fetch();
-                ?>
-                <div class="panier-produits">
-                    <div class="panier-img">
-                        <img src="<?php echo vite_get_asset('produits/'.$plante['image_1']); ?>" alt="">
-                    </div>
-                    <div class="panier-descrip">
-                        <h3><?= $plante['name'] ?></h3>
-                        <p class="price"><?= $plante['price'] ?>€ <small>(à l'unité)</small></p>
-                        <div class="order-detail">
-                            <p>Quantité:</p>
-                            <div class="quantite">
-                                <button class="qty-count qty-count--minus" commandfor="qty" command="--decrement" type="button">-</button>
-                                <input class="product-qty" type="number" id="qty" name="quantity" min="1" max="10" step="1" value="1">
-                                <button class="qty-count qty-count--add" commandfor="qty" command="--increment" type="button">+</button>
+            <section class="container-paniers">
+                <div class="panier-container">
+                    <?php if (!$cart):?>
+                        <p class="vide">Panier vide pour l'instant</p>
+                    <?php else :
+                        foreach ($cartItems as $cartItem) {
+                            $product = $cartItem['product'];
+                            $quantity = $cartItem['quantity'];
+                    ?>
+                            <div class="panier-produits">
+                                <div class="panier-img">
+                                    <img src="<?php echo vite_get_asset('produits/' . $product['image_1']); ?>" alt="">
+                                </div>
+                                <div class="panier-descrip">
+                                    <h3><?= htmlspecialchars($product['name']); ?></h3>
+                                    <p class="price"><?= number_format($product['price'], 2, ',', ''); ?>€ <small>(à l'unité)</small></p>
+                                    <div class="order-detail">
+                                        <p>Quantité:</p>
+                                        <div class="quantite">
+                                            <button class="qty-count qty-count--minus" commandfor="qty-<?= $product['id_plantes'] ?>" command="--decrement" type="button">-</button>
+                                            <input class="product-qty" type="number" id="qty-<?= $product['id_plantes'] ?>" name="quantity[<?= $product['id_plantes'] ?>]" min="1" max="10" step="1" value="<?= $quantity ?>">
+                                            <button class="qty-count qty-count--add" commandfor="qty-<?= $product['id_plantes'] ?>" command="--increment" type="button">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panier-delete">
+                                    <a href="./remove-cart.php?id=<?= $product['id_plantes'] ?>" onclick="return confirm('Supprimer du panier ?')">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="panier-delete">
-                        <a href="#"><i class="fa-solid fa-trash-can"></i></a>
-                    </div>
+                
+            <?php }; ?>
                 </div>
-                <?php 
-                        $sousTotal += $plante['price'] * $quantity;
-                        } 
-                        ?>
-                <div class="panier-total">
-                    <table class="total">
-                        <tr>
-                            <td>Sous-total</td>
-                            <td><?= $sousTotal ?>€</td>
-                        </tr>
-                        <tr>
-                            <td>Transport</td>
-                            <td><?= $transport ?>€</td>
-                        </tr>
-                        <tr>
-                            <td>Taxes</td>
-                            <td><?= $taxes ?>€</td>
-                        </tr>
-                        <tr class="ttc">
-                            <td>Total TTC</td>
-                            <td><?= $sousTotal + $transport + $taxes?>€</td>
-                        </tr>
-                    </table>
-                    <div class="panier-order-btn">
-                        <a href="#" class="invite">Commander en tant qu'invité</a>
-                        <a href="#" class="connecte">Commander</a>
-                    </div>
+            <div class="panier-total">
+                <table class="total">
+                    <tr>
+                        <td>Sous-total</td>
+                        <td><?= number_format($sousTotal, 2, ',', ' '); ?>€</td>
+                    </tr>
+                    <tr>
+                        <td>Transport</td>
+                        <td><?= number_format($transport, 2, ',', ' '); ?>€</td>
+                    </tr>
+                    <tr>
+                        <td>Taxes</td>
+                        <td><?= number_format($taxes, 2, ',', ' '); ?>€</td>
+                    </tr>
+                    <tr class="ttc">
+                        <td>Total TTC</td>
+                        <td><?= number_format($total, 2, ',', ' '); ?>€</td>
+                    </tr>
+                </table>
+                <div class="panier-order-btn">
+                    <a href="#" class="invite">Commander en tant qu'invité</a>
+                    <a href="#" class="connecte">Commander</a>
                 </div>
+            </div>
             </section>
-            <?php } ?>
+        <?php endif; ?>
         </form>
+        <?php if (!empty($cart)): ?>
         <section class="recommandation">
             <h3>Ce que nous vous recommandons avec ce produit:</h3>
             <div class="container-card">
@@ -102,6 +103,7 @@ $total = 0;
                 ?>
             </div>
         </section>
+        <?php endif; ?>
     </main>
     <?php include_once(__DIR__ . '../includes/parts/footer.php') ?>
 </body>

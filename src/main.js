@@ -58,6 +58,7 @@ window.addEventListener('load', () => {
     });
 
 });
+
     /*BOUTON QUANTITE*/
     document.querySelectorAll('.qty-count--add').forEach(btn => {
         btn.addEventListener('click', function () {
@@ -81,4 +82,5 @@ window.addEventListener('load', () => {
             updateTotal();
         });
     });
+
 
