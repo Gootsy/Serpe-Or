@@ -113,6 +113,7 @@ $recommandations= getPlantAccessoires($recommandationIds);
                 <div class="order">
                     <form action="add-to-cart.php" method="post">
                         <input type="hidden" name="id_plantes" value="<?= $plante['id_plantes'] ?>">
+                        <input type="hidden" name="produit_type" value="plante">
                         <p class="price"><?= $plante['price'] ?>€</p>
                         <div class="order-detail">
                             <?php if($plante['stock']>=6): ?>

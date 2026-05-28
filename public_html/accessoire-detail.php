@@ -72,6 +72,8 @@ $news=getNewAccessoires($id_categorie_principale, $id);
                 <p><?= $accessoire['description'] ?></p>
                 <div class="order">
                     <form action="" method="post">
+                        <input type="hidden" name="id_accessoires" value="<?= $accessoire['id_accessoires'] ?>">
+                        <input type="hidden" name="produit_type" value="accessoire">
                         <p class="price"><?= $accessoire['price'] ?>€</p>
                         <div class="order-detail">
                             <?php if ($accessoire['stock'] >= 6): ?>

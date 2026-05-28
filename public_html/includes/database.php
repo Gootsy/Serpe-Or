@@ -161,7 +161,9 @@ function getAtelierById($id){
 
 function getCartItems($pdo, $cart){
     $ids = array_keys($cart);
-
+    if (empty($cart)) {
+        return [];
+    }
     $placeholders = implode(',', array_fill(0, count($ids), '?'));
 
     $sql = "SELECT * FROM plantes WHERE id_plantes IN ($placeholders)";

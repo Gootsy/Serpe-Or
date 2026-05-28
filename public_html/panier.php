@@ -9,9 +9,7 @@ $sousTotal = calculateCartTotal($cartItems);
 $transport = 10;
 $taxes = 6.35;
 $total = $sousTotal + $transport + $taxes;
-
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -47,7 +45,7 @@ $total = $sousTotal + $transport + $taxes;
                                 </div>
                                 <div class="panier-descrip">
                                     <h3><?= htmlspecialchars($product['name']); ?></h3>
-                                    <p class="price"><?= number_format($product['price'], 2, ',', ''); ?>€ <small>(à l'unité)</small></p>
+                                    <p class="price"><small><span class="prix-uniq"><?= number_format($product['price'], 2, ',', ''); ?></span>€ (à l'unité)</small></p>
                                     <div class="order-detail">
                                         <p>Quantité:</p>
                                         <div class="quantite">
@@ -56,6 +54,7 @@ $total = $sousTotal + $transport + $taxes;
                                             <button class="qty-count qty-count--add" commandfor="qty-<?= $product['id_plantes'] ?>" command="--increment" type="button">+</button>
                                         </div>
                                     </div>
+                                    <p class="price">Total: <span class="prix-qty"><?= number_format($product['price'], 2, ',', ''); ?></span>€</p>
                                 </div>
                                 <div class="panier-delete">
                                     <a href="./remove-cart.php?id=<?= $product['id_plantes'] ?>" onclick="return confirm('Supprimer du panier ?')">

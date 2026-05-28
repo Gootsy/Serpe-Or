@@ -4,7 +4,19 @@ import './scss/main.scss';
 import.meta.glob('./images/**/*.{png,jpg,jpeg,svg,webp}', { eager: true });
 
 
-window.addEventListener('load', () => {
+function CalculateProductTotal(productqty) {
+        let prixUnique = document.querySelector('.prix-uniq').textContent;
+        let prixGlobal = document.querySelector('.prix-qty').textContent;
+        let prixGlobalElement = document.querySelector('.prix-qty');
+        console.log('ok' + prixUnique + prixGlobal);
+
+        let prixGlobalNew = parseInt(prixUnique) * parseInt(productqty);
+
+        prixGlobalElement.textContent = prixGlobalNew;
+    }
+
+
+document.addEventListener('DOMContentLoaded', () => {
     /*MENU*/
     const openNav = document.getElementById('navTrigger');
     openNav.addEventListener("click", function (event) {
@@ -38,6 +50,9 @@ window.addEventListener('load', () => {
     });
 
     /*CAROUSEL*/
+    if (document.querySelector('.controls')) {
+    // L'élément existe, exécuter le code ici
+
     const slide = document.querySelector(".slide-img");
     const slideContainer = document.querySelector(".controls");
     const slideWidth = slide.clientWidth;
@@ -56,22 +71,25 @@ window.addEventListener('load', () => {
         const liWidth = document.querySelector('.slide-img').clientWidth;
         // console.log("Largeur après chargement :", liWidth);
     });
+    }
 
-});
 
     /*BOUTON QUANTITE*/
+    
+
     document.querySelectorAll('.qty-count--add').forEach(btn => {
         btn.addEventListener('click', function () {
-            console.log('btn+1')
+            // console.log('btn+1')
             const input = this.parentElement.querySelector('.product-qty');
             const current = parseInt(input.value);
             const max = parseInt(input.max);
 
+            console.log();
             if (current < max) {
                 input.value = current + 1;
             }
 
-            updateTotal();
+            CalculateProductTotal(input.value);
         });
     });
 
@@ -79,8 +97,13 @@ window.addEventListener('load', () => {
         btn.addEventListener('click', function () {
             const input = this.parentElement.querySelector('.product-qty');
             if (input.value > 1) input.value--;
-            updateTotal();
+            CalculateProductTotal(input.value);
         });
     });
 
+    
 
+
+
+
+});
