@@ -4,16 +4,33 @@ import './scss/main.scss';
 import.meta.glob('./images/**/*.{png,jpg,jpeg,svg,webp}', { eager: true });
 
 
-function CalculateProductTotal(productqty) {
-        let prixUnique = document.querySelector('.prix-uniq').textContent;
-        let prixGlobal = document.querySelector('.prix-qty').textContent;
-        let prixGlobalElement = document.querySelector('.prix-qty');
-        console.log('ok' + prixUnique + prixGlobal);
+function CalculateProductTotal(productNode) {
+    let prixUnique = productNode.querySelector('.prix-uniq').textContent;
+    let prixGlobal = productNode.querySelector('.prix-qty').textContent;
+    let prixGlobalElement = productNode.querySelector('.prix-qty');
+    let productqty = productNode.querySelector('.product-qty').value;
+    let sousTotal = document.querySelector('#sousTotal').textContent;
+    let sousTotalElement = document.querySelector('#sousTotal');
+    let ttc = document.querySelector('#ttc').textContent;
+    let ttcElement = document.querySelector('#ttc');
+    let transport = document.querySelector('#transport').textContent;
+    console.log('ok' + sousTotal);
 
-        let prixGlobalNew = parseInt(prixUnique) * parseInt(productqty);
+    let prixGlobalNew = parseFloat(prixUnique.replace(',', '.')) * parseInt(productqty);
+    // console.log(parseFloat(prixUnique.replace(',', '.')));
+    prixGlobalElement.textContent = prixGlobalNew.toFixed(2);
 
-        prixGlobalElement.textContent = prixGlobalNew;
-    }
+    let sousTotalNew = 0;
+    document.querySelectorAll('.panier-produits').forEach(produit => {
+        let prixProduit = produit.querySelector('.prix-qty').textContent;
+        sousTotalNew += parseFloat(prixProduit.replace(',', '.'));
+    });
+    sousTotalElement.textContent = sousTotalNew.toFixed(2);
+
+    let ttcNew = sousTotalNew + parseFloat(transport.replace(',', '.'));
+    ttcElement.textContent = ttcNew.toFixed(2);
+
+}
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -84,12 +101,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const current = parseInt(input.value);
             const max = parseInt(input.max);
 
-            console.log();
+            // console.log();
             if (current < max) {
                 input.value = current + 1;
             }
 
-            CalculateProductTotal(input.value);
+            CalculateProductTotal(this.parentElement.parentElement.parentElement);
         });
     });
 
@@ -97,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', function () {
             const input = this.parentElement.querySelector('.product-qty');
             if (input.value > 1) input.value--;
-            CalculateProductTotal(input.value);
+            CalculateProductTotal(this.parentElement.parentElement.parentElement);
         });
     });
 

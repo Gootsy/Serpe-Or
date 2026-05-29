@@ -7,8 +7,7 @@ $cart = $_SESSION['cart'] ?? [];
 $cartItems = getCartItems($pdo, $cart);
 $sousTotal = calculateCartTotal($cartItems);
 $transport = 10;
-$taxes = 6.35;
-$total = $sousTotal + $transport + $taxes;
+$total = $sousTotal + $transport;
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -32,12 +31,15 @@ $total = $sousTotal + $transport + $taxes;
 
             <section class="container-paniers">
                 <div class="panier-container">
-                    <?php if (!$cart):?>
-                        <p class="vide">Panier vide pour l'instant</p>
+                    <?php 
+                    if (empty($cart['plante']) && empty($cart['accessoire'])):?>
+                        <p class="vide">Panier est vide pour l'instant</p>
                     <?php else :
                         foreach ($cartItems as $cartItem) {
                             $product = $cartItem['product'];
                             $quantity = $cartItem['quantity'];
+                            $lineTotal = $cartItem['line_total'];
+                            $type = $cartItem['type'];
                     ?>
                             <div class="panier-produits">
                                 <div class="panier-img">
@@ -54,10 +56,10 @@ $total = $sousTotal + $transport + $taxes;
                                             <button class="qty-count qty-count--add" commandfor="qty-<?= $product['id_plantes'] ?>" command="--increment" type="button">+</button>
                                         </div>
                                     </div>
-                                    <p class="price">Total: <span class="prix-qty"><?= number_format($product['price'], 2, ',', ''); ?></span>€</p>
+                                    <p class="price">Total: <span class="prix-qty"><?= number_format($lineTotal, 2, ',', ''); ?></span>€</p>
                                 </div>
                                 <div class="panier-delete">
-                                    <a href="./remove-cart.php?id=<?= $product['id_plantes'] ?>" onclick="return confirm('Supprimer du panier ?')">
+                                    <a href="./remove-cart.php?type=<?= $type; ?>&id=<?= $product['id_plantes'] ?>" onclick="return confirm('Supprimer du panier ?')">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </a>
                                 </div>
@@ -69,19 +71,15 @@ $total = $sousTotal + $transport + $taxes;
                 <table class="total">
                     <tr>
                         <td>Sous-total</td>
-                        <td><?= number_format($sousTotal, 2, ',', ' '); ?>€</td>
+                        <td id="sousTotal"><?= number_format($sousTotal, 2, ',', ' '); ?>€</td>
                     </tr>
                     <tr>
                         <td>Transport</td>
-                        <td><?= number_format($transport, 2, ',', ' '); ?>€</td>
-                    </tr>
-                    <tr>
-                        <td>Taxes</td>
-                        <td><?= number_format($taxes, 2, ',', ' '); ?>€</td>
+                        <td id="transport"><?= number_format($transport, 2, ',', ' '); ?>€</td>
                     </tr>
                     <tr class="ttc">
                         <td>Total TTC</td>
-                        <td><?= number_format($total, 2, ',', ' '); ?>€</td>
+                        <td id="ttc"><?= number_format($total, 2, ',', ' '); ?>€</td>
                     </tr>
                 </table>
                 <div class="panier-order-btn">
@@ -92,7 +90,7 @@ $total = $sousTotal + $transport + $taxes;
             </section>
         <?php endif; ?>
         </form>
-        <?php if (!empty($cart)): ?>
+        <?php if (!empty($cart['plante']) || !empty($cart['accessoire'])): ?>
         <section class="recommandation">
             <h3>Ce que nous vous recommandons avec ce produit:</h3>
             <div class="container-card">
