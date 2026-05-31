@@ -58,25 +58,25 @@ $plante = null;
                         <div class="slide" id="inside">
                             <img src="<?php echo vite_get_asset('content/luisa-brimble-1KYprL0KevE-unsplash.jpg'); ?>" alt="Intérieur">
                             <div class="category-overlay">
-                                <a href="#">Intérieur</a>
+                                <a href="produit.php?search=&plante_categories[]=1">Intérieur</a>
                             </div>
                         </div>
                         <div class="slide" id="outside">
                             <img src="<?php echo vite_get_asset('content/robin-wersich-Q0IrpWQIMR4-unsplash.jpg'); ?>" alt="Extérieur">
                             <div class="category-overlay">
-                                <a href="#">Extérieur</a>
+                                <a href="produit.php?search=&plante_categories[]=2">Extérieur</a>
                             </div>
                         </div>
                         <div class="slide" id="terra">
                             <img src="<?php echo vite_get_asset('content/terrarium-demo.jpg'); ?>" alt="Terrarium">
                             <div class="category-overlay">
-                                <a href="#">Terrarium</a>
+                                <a href="produit.php?search=&plante_categories[]=3">Terrarium</a>
                             </div>
                         </div>
                         <div class="slide" id="arom">
                             <img src="<?php echo vite_get_asset('content/elias-morr-dyQuGkZMLkk-unsplash.jpg'); ?>" alt="Plantes aromatiques">
                             <div class="category-overlay">
-                                <a href="#">Plantes aromatiques</a>
+                                <a href="produit.php?search=&plante_categories[]=4">Plantes aromatiques</a>
                             </div>
                         </div>
                         <div class="slide" id="tool">
