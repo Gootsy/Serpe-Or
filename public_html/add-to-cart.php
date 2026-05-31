@@ -2,7 +2,12 @@
 session_start();
 
 $type = $_POST['produit_type'];
-$id = $_POST['id_plantes'];
+$id = $_POST['id_plantes']
+    ?? $_POST['id_accessoires']
+    ?? null;
+if ($id === null) {
+    die('Produit invalide');
+}
 $quantity = $_POST['quantity'] ?? 1;
 
 if (!isset($_SESSION['cart'])) {

@@ -14,7 +14,7 @@ function CalculateProductTotal(productNode) {
     let ttc = document.querySelector('#ttc').textContent;
     let ttcElement = document.querySelector('#ttc');
     let transport = document.querySelector('#transport').textContent;
-    console.log('ok' + sousTotal);
+    // console.log('ok' + sousTotal);
 
     let prixGlobalNew = parseFloat(prixUnique.replace(',', '.')) * parseInt(productqty);
     // console.log(parseFloat(prixUnique.replace(',', '.')));
@@ -100,26 +100,37 @@ document.addEventListener('DOMContentLoaded', () => {
             const input = this.parentElement.querySelector('.product-qty');
             const current = parseInt(input.value);
             const max = parseInt(input.max);
+            const modal = document.querySelector('.modal');
 
             // console.log();
             if (current < max) {
                 input.value = current + 1;
             }
-
+            
             CalculateProductTotal(this.parentElement.parentElement.parentElement);
+            modal.style.display='block';
         });
     });
 
     document.querySelectorAll('.qty-count--minus').forEach(btn => {
         btn.addEventListener('click', function () {
             const input = this.parentElement.querySelector('.product-qty');
+            const modal = document.querySelector('.modal');
+
             if (input.value > 1) input.value--;
             CalculateProductTotal(this.parentElement.parentElement.parentElement);
+            modal.style.display='block';
         });
     });
 
+    const modal = document.querySelector('.modal');
+    const update = document.querySelector('.modal-update');
+    document.querySelector('.modal-update').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector('form').submit();
+    });
     
-
+    
 
 
 

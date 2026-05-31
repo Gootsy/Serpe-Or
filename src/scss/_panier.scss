@@ -5,6 +5,29 @@
     form{
         width: 100%;
         text-align: center;
+        .modal{
+            display: none;
+            position: absolute;
+            background-color: var.$bg-vert;
+            color: var.$color-sable;
+            box-shadow: 5px 5px 10px rgb(47, 47, 47);
+            padding: 3%;
+            width: 28%;
+            right: 31.5%;
+            p{
+                padding-bottom: 3%;
+            }
+            .modal-update{
+                color: var.$color-sable;
+                border: #D9BCA3 1px solid;
+                padding: 2%;
+                margin-top: 2%;
+            }
+            .modal-update:hover{
+                background-color: var.$bg-sable;
+                color: black;
+            }
+        }
         .container-paniers{
             display: flex;
             flex-direction: row;

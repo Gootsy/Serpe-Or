@@ -3,6 +3,25 @@ session_start();
 require_once __DIR__ . '/includes/init.php';
 require_once __DIR__ . '/includes/database.php';
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['quantity'])) {
+
+    foreach ($_POST['quantity'] as $id => $quantity) {
+
+        $quantity = max(1, (int)$quantity);
+
+        if (isset($_SESSION['cart']['plante'][$id])) {
+            $_SESSION['cart']['plante'][$id] = $quantity;
+        }
+
+        if (isset($_SESSION['cart']['accessoire'][$id])) {
+            $_SESSION['cart']['accessoire'][$id] = $quantity;
+        }
+    }
+
+    header('Location: panier.php');
+    exit;
+}
+
 $cart = $_SESSION['cart'] ?? [];
 $cartItems = getCartItems($pdo, $cart);
 $sousTotal = calculateCartTotal($cartItems);
@@ -28,7 +47,10 @@ $total = $sousTotal + $transport;
     <main class="panier">
         <form action="" method="post">
             <h2>Votre panier</h2>
-
+            <div class="modal">
+                <p>Si vous décidez de changer les quantités sur cette page, veuiller garder à jour en cliquant sous 'Total TTC' avant de quitter la page afin d'enregistrer les nouvelles quantités!</p>
+                <a href="#" class="modal-update">Garder à jour</a>
+            </div>
             <section class="container-paniers">
                 <div class="panier-container">
                     <?php 

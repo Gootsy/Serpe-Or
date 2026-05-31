@@ -36,32 +36,32 @@ $news=getNewAccessoires($id_categorie_principale, $id);
                 <input type="radio" name="gallery" id="img2">
                 <input type="radio" name="gallery" id="img3">
                 <div class="viewer">
-                    <?php if (!empty($accessoire['image_a'])): ?>
+                    <?php if (!empty($accessoire['image_1'])): ?>
                         <div class="container-img">
-                            <img src="<?= vite_get_asset('accessoires/' . $accessoire['image_a']); ?>" alt="Image 1">
+                            <img src="<?= vite_get_asset('accessoires/' . $accessoire['image_1']); ?>" alt="Image 1">
                         </div>
                     <?php endif; ?>
-                    <?php if (!empty($accessoire['image_b'])): ?>
+                    <?php if (!empty($accessoire['image_2'])): ?>
                         <div class="container-img">
-                            <img src="<?= vite_get_asset('accessoires/' . $accessoire['image_b']); ?>" alt="Image 2">
+                            <img src="<?= vite_get_asset('accessoires/' . $accessoire['image_2']); ?>" alt="Image 2">
                         </div>
                     <?php endif; ?>
-                    <?php if (!empty($accessoire['image_c'])): ?>
+                    <?php if (!empty($accessoire['image_3'])): ?>
                         <div class="container-img">
-                            <img src="<?= vite_get_asset('accessoires/' . $accessoire['image_c']); ?>" alt="Image 3">
+                            <img src="<?= vite_get_asset('accessoires/' . $accessoire['image_3']); ?>" alt="Image 3">
                         </div>
                     <?php endif; ?>
                 </div>
                 <div class="controls">
                     <ul class="slides">
-                        <?php if (!empty($accessoire['image_a'])): ?>
-                            <li class="slide-img"><label for="img1"><img src="<?= vite_get_asset('accessoires/' . $accessoire['image_a']); ?>" alt=""></label></li>
+                        <?php if (!empty($accessoire['image_1'])): ?>
+                            <li class="slide-img"><label for="img1"><img src="<?= vite_get_asset('accessoires/' . $accessoire['image_1']); ?>" alt=""></label></li>
                         <?php endif; ?>
-                        <?php if (!empty($accessoire['image_b'])): ?>
-                            <li class="slide-img"><label for="img2"><img src="<?= vite_get_asset('accessoires/' . $accessoire['image_b']); ?>" alt=""></label></li>
+                        <?php if (!empty($accessoire['image_2'])): ?>
+                            <li class="slide-img"><label for="img2"><img src="<?= vite_get_asset('accessoires/' . $accessoire['image_2']); ?>" alt=""></label></li>
                         <?php endif; ?>
-                        <?php if (!empty($accessoire['image_c'])): ?>
-                            <li class="slide-img"><label for="img3"><img src="<?= vite_get_asset('accessoires/' . $accessoire['image_c']); ?>" alt=""></label></li>
+                        <?php if (!empty($accessoire['image_3'])): ?>
+                            <li class="slide-img"><label for="img3"><img src="<?= vite_get_asset('accessoires/' . $accessoire['image_3']); ?>" alt=""></label></li>
                         <?php endif; ?>
                     </ul>
                 </div>
@@ -71,7 +71,7 @@ $news=getNewAccessoires($id_categorie_principale, $id);
                 <h3><?= $accessoire['name'] ?></h3>
                 <p><?= $accessoire['description'] ?></p>
                 <div class="order">
-                    <form action="" method="post">
+                    <form action="add-to-cart.php" method="post">
                         <input type="hidden" name="id_accessoires" value="<?= $accessoire['id_accessoires'] ?>">
                         <input type="hidden" name="produit_type" value="accessoire">
                         <p class="price"><?= $accessoire['price'] ?>€</p>
@@ -87,7 +87,7 @@ $news=getNewAccessoires($id_categorie_principale, $id);
                                 <p>Rupture de stock</p>
                             <?php endif; ?>
                         </div>
-                        <?php if ($accessoire['stock'] > 0): ?>
+                        <?php if ($accessoire['stock'] >= 1): ?>
                         <div class="order-detail">
                             <p>Quantité:</p>
                             <button class="qty-count qty-count--minus" type="button">-</button>

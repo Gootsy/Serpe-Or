@@ -164,7 +164,7 @@ function getCartItems($pdo, $cart){
             return [];
         }
     $items = [];
-    if ($cart['plante']){
+    if (!empty($cart['plante'])){
         $ids = array_keys($cart['plante']);
         
         $placeholders = implode(',', array_fill(0, count($ids), '?'));
@@ -187,6 +187,32 @@ function getCartItems($pdo, $cart){
                 'quantity' => $quantity,
                 'line_total' => $lineTotal,
                 'type' => 'plante',
+            ];
+        };
+    }
+    if (!empty($cart['accessoire'])){
+        $ids = array_keys($cart['accessoire']);
+        
+        $placeholders = implode(',', array_fill(0, count($ids), '?'));
+
+        $sql = "SELECT * FROM accessoires WHERE id_accessoires IN ($placeholders)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($ids);
+
+        $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($products as $product) {
+
+            $id = $product['id_accessoires'];
+            $quantity = (int) $cart['accessoire'][$id];
+
+            $lineTotal = $product['price'] * $quantity;
+
+            $items[] = [
+                'product' => $product,
+                'quantity' => $quantity,
+                'line_total' => $lineTotal,
+                'type' => 'accessoire',
             ];
         };
     }

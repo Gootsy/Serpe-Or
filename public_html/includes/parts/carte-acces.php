@@ -1,6 +1,6 @@
 <article class="card">
     <div class="card-img">
-        <img src="<?php echo vite_get_asset('accessoires/'. $item['image_a']); ?>" alt="">
+        <img src="<?php echo vite_get_asset('accessoires/'. $item['image_1']); ?>" alt="">
     </div>
     <div class="card-title">
         <h3><?= htmlspecialchars($item['name']) ?></h3>
