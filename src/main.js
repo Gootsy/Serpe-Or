@@ -76,22 +76,56 @@ document.addEventListener('DOMContentLoaded', () => {
     // console.log(slide);
     const previousBtn = document.querySelector(".previous");
     const forwardBtn = document.querySelector(".forwards");
+    if(forwardBtn){
     forwardBtn.addEventListener("click", function () {
         // console.log(slideWidth);
         slideContainer.scrollBy(slideWidth, 0);
-    })
+    })}
+
+    if(previousBtn){
     previousBtn.addEventListener("click", function () {
         slideContainer.scrollBy(slideWidth * -1, 0);
-    })
+    })}
 
+    if(slide){
     slide.addEventListener('load', () => {
         const liWidth = document.querySelector('.slide-img').clientWidth;
         // console.log("Largeur après chargement :", liWidth);
     });
-    }
+    }}
+
+    /*BOUTON QUANTITE - details*/
+    document.querySelectorAll('.count-add').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const input = this.parentElement.querySelector('.produit-count');
+            const max = parseInt(input.max);
+            let value = parseInt(input.value);
+        console.log(max + ' ' + value);
+
+            if (value < max) {
+                input.value = value + 1;
+                updateTotal();
+            }
+        });
+    });
+
+    document.querySelectorAll('.count-minus').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const input = this.parentElement.querySelector('.produit-count');
+            const min = parseInt(input.min);
+            let value = parseInt(input.value);
+
+            if (value > min) {
+                input.value = value - 1;
+                updateTotal();
+            }
+        });
+    });
 
 
-    /*BOUTON QUANTITE*/
+
+
+    /*BOUTON QUANTITE - panier*/
     
 
     document.querySelectorAll('.qty-count--add').forEach(btn => {
@@ -122,14 +156,15 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.style.display='block';
         });
     });
-
+    /*Mise à jour des changements de quantité*/
     const modal = document.querySelector('.modal');
     const update = document.querySelector('.modal-update');
+    if(modal){
     document.querySelector('.modal-update').addEventListener('click', (e) => {
         e.preventDefault();
         document.querySelector('form').submit();
     });
-    
+    }
     
 
 

@@ -90,9 +90,9 @@ $news=getNewAccessoires($id_categorie_principale, $id);
                         <?php if ($accessoire['stock'] >= 1): ?>
                         <div class="order-detail">
                             <p>Quantité:</p>
-                            <button class="qty-count qty-count--minus" type="button">-</button>
-                            <input class="product-qty" type="number" id="qty" name="quantity" min="1" max="<?= $accessoire['stock'] ?>" step="1" value="1">
-                            <button class="qty-count qty-count--add" type="button">+</button>
+                            <button class="qty-count count-minus" type="button">-</button>
+                            <input class="produit-count" type="number" id="qty" name="quantity" min="1" max="<?= $accessoire['stock'] ?>" step="1" value="1">
+                            <button class="qty-count count-add" type="button">+</button>
                         </div>
                         <div class="order-btn">
                             <input type="submit" value="Ajouter au panier">

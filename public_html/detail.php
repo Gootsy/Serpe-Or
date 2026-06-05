@@ -40,28 +40,28 @@ $recommandations= getPlantAccessoires($recommandationIds);
                 <input type="radio" name="gallery" id="img5">
                 <div class="viewer">
                     <div class="container-img">
-                        <img src="<?= vite_get_asset('produits/'.$plante['image_1']); ?>" alt="Image 1">
+                        <img src="<?= vite_get_asset('plantes/'.$plante['image_1']); ?>" alt="Image 1">
                     </div>
                     <div class="container-img">
-                        <img src="<?= vite_get_asset('produits/'.$plante['image_2']); ?>" alt="Image 2">
+                        <img src="<?= vite_get_asset('plantes/'.$plante['image_2']); ?>" alt="Image 2">
                     </div>
                     <div class="container-img">
-                        <img src="<?= vite_get_asset('produits/'.$plante['image_3']); ?>" alt="Image 3">
+                        <img src="<?= vite_get_asset('plantes/'.$plante['image_3']); ?>" alt="Image 3">
                     </div>
                     <div class="container-img">
-                        <img src="<?= vite_get_asset('produits/'.$plante['image_4']); ?>" alt="Image 4">
+                        <img src="<?= vite_get_asset('plantes/'.$plante['image_4']); ?>" alt="Image 4">
                     </div>
                     <div class="container-img">
-                        <img src="<?= vite_get_asset('produits/'.$plante['image_5']); ?>" alt="Image 5">
+                        <img src="<?= vite_get_asset('plantes/'.$plante['image_5']); ?>" alt="Image 5">
                     </div>
                 </div>
                 <div class="controls">
                     <ul class="slides">
-                        <li class="slide-img"><label for="img1"><img src="<?= vite_get_asset('produits/'.$plante['image_1']); ?>" alt=""></label></li>
-                        <li class="slide-img"><label for="img2"><img src="<?= vite_get_asset('produits/'.$plante['image_2']); ?>" alt=""></label></li>
-                        <li class="slide-img"><label for="img3"><img src="<?= vite_get_asset('produits/'.$plante['image_3']); ?>" alt=""></label></li>
-                        <li class="slide-img"><label for="img4"><img src="<?= vite_get_asset('produits/'.$plante['image_4']); ?>" alt=""></label></li>
-                        <li class="slide-img"><label for="img5"><img src="<?= vite_get_asset('produits/'.$plante['image_5']); ?>" alt=""></label></li>
+                        <li class="slide-img"><label for="img1"><img src="<?= vite_get_asset('plantes/'.$plante['image_1']); ?>" alt=""></label></li>
+                        <li class="slide-img"><label for="img2"><img src="<?= vite_get_asset('plantes/'.$plante['image_2']); ?>" alt=""></label></li>
+                        <li class="slide-img"><label for="img3"><img src="<?= vite_get_asset('plantes/'.$plante['image_3']); ?>" alt=""></label></li>
+                        <li class="slide-img"><label for="img4"><img src="<?= vite_get_asset('plantes/'.$plante['image_4']); ?>" alt=""></label></li>
+                        <li class="slide-img"><label for="img5"><img src="<?= vite_get_asset('plantes/'.$plante['image_5']); ?>" alt=""></label></li>
                     </ul>
                 </div>
 
@@ -130,9 +130,9 @@ $recommandations= getPlantAccessoires($recommandationIds);
                         <?php if($plante['stock']>=1): ?>
                             <div class="order-detail">
                                 <p>Quantité:</p>
-                                <button class="qty-count qty-count--minus" type="button">-</button>
-                                <input class="product-qty" type="number" id="qty" name="quantity" min="1" max="<?php $plante['stock'] ?>" step="1" value="1">
-                                <button class="qty-count qty-count--add" type="button">+</button>
+                                <button class="qty-count count-minus" type="button">-</button>
+                                <input class="produit-count" type="number" id="qty" name="quantity" min="1" max="<?php echo $plante['stock']; ?>" step="1" value="1">
+                                <button class="qty-count count-add" type="button">+</button>
                             </div>
                             <div class="order-btn">
                                 <input type="submit" value="Ajouter au panier">

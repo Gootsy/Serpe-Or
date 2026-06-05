@@ -58,6 +58,7 @@ $total = $sousTotal + $transport;
                         <p class="vide">Panier est vide pour l'instant</p>
                     <?php else :
                         foreach ($cartItems as $cartItem) {
+                            $id = $cartItem['id'];
                             $product = $cartItem['product'];
                             $quantity = $cartItem['quantity'];
                             $lineTotal = $cartItem['line_total'];
@@ -65,7 +66,7 @@ $total = $sousTotal + $transport;
                     ?>
                             <div class="panier-produits">
                                 <div class="panier-img">
-                                    <img src="<?php echo vite_get_asset('produits/' . $product['image_1']); ?>" alt="">
+                                    <img src="<?php echo vite_get_asset( $type . 's/' . $product['image_1']); ?>" alt="">
                                 </div>
                                 <div class="panier-descrip">
                                     <h3><?= htmlspecialchars($product['name']); ?></h3>
@@ -73,15 +74,15 @@ $total = $sousTotal + $transport;
                                     <div class="order-detail">
                                         <p>Quantité:</p>
                                         <div class="quantite">
-                                            <button class="qty-count qty-count--minus" commandfor="qty-<?= $product['id_plantes'] ?>" command="--decrement" type="button">-</button>
-                                            <input class="product-qty" type="number" id="qty-<?= $product['id_plantes'] ?>" name="quantity[<?= $product['id_plantes'] ?>]" min="1" max="10" step="1" value="<?= $quantity ?>">
-                                            <button class="qty-count qty-count--add" commandfor="qty-<?= $product['id_plantes'] ?>" command="--increment" type="button">+</button>
+                                            <button class="qty-count qty-count--minus" commandfor="qty-<?= $id ?>" command="--decrement" type="button">-</button>
+                                            <input class="product-qty" type="number" id="qty-<?= $id ?>" name="quantity[<?= $id ?>]" min="1" max="10" step="1" value="<?= $quantity ?>">
+                                            <button class="qty-count qty-count--add" commandfor="qty-<?= $id ?>" command="--increment" type="button">+</button>
                                         </div>
                                     </div>
                                     <p class="price">Total: <span class="prix-qty"><?= number_format($lineTotal, 2, ',', ''); ?></span>€</p>
                                 </div>
                                 <div class="panier-delete">
-                                    <a href="./remove-cart.php?type=<?= $type; ?>&id=<?= $product['id_plantes'] ?>" onclick="return confirm('Supprimer du panier ?')">
+                                    <a href="./remove-cart.php?type=<?= $type; ?>&id=<?= $id ?>" onclick="return confirm('Supprimer du panier ?')">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </a>
                                 </div>
@@ -123,13 +124,23 @@ $total = $sousTotal + $transport;
                 <div class="error">
                     <p>Veuillez nous excuser. Nos produits sont momentanément invalides...</p>
                 </div>
+                
                 <?php
-                }
-                else{                    
-                    $recommandationIds=[$product['fk_id_accessoire_1'],$product['fk_id_accessoire_2'],$product['fk_id_accessoire_3']];
-                    $recommandations= getPlantAccessoires($recommandationIds);
-                    foreach($recommandations as $item){
+                }else{  
+
+                    if($cartItems[0]['type'] == 'plante'){
+                        $recommandationIds=[$cartItems[0]['product']['fk_id_accessoire_1'],$cartItems[0]['product']['fk_id_accessoire_2'],$cartItems[0]['product']['fk_id_accessoire_3']];
+                        $recommandations= getPlantAccessoires($recommandationIds);
+                        foreach($recommandations as $item){
+                            include(__DIR__.'../includes/parts/carte-acces.php');
+                        }
+                    }
+                    elseif($cartItems[0]['type'] == 'accessoire'){
+                        $id_categorie_principale = $cartItems[0]['product']['id_acces_categorie'];
+                        $news=getNewAccessoires($id_categorie_principale, $id);
+                        foreach($news as $item){
                         include(__DIR__.'../includes/parts/carte-acces.php');
+                        }
                     }
                 }
                 ?>

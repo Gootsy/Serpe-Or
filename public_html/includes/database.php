@@ -183,6 +183,7 @@ function getCartItems($pdo, $cart){
             $lineTotal = $product['price'] * $quantity;
 
             $items[] = [
+                'id'=> $id,
                 'product' => $product,
                 'quantity' => $quantity,
                 'line_total' => $lineTotal,
@@ -209,6 +210,7 @@ function getCartItems($pdo, $cart){
             $lineTotal = $product['price'] * $quantity;
 
             $items[] = [
+                'id'=> $id,
                 'product' => $product,
                 'quantity' => $quantity,
                 'line_total' => $lineTotal,
