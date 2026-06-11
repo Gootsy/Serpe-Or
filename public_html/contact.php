@@ -58,7 +58,7 @@
                     <div class="fond-img-right">
                         <img src="<?php echo vite_get_asset('content/plante(5).png'); ?>" alt="">
                     </div>
-                    <form action="" method="post">
+                    <form action="" method="post" enctype="multipart/form-data">
                         <h3>Vous avez une question?</h3>
                         <div class="titre">
                             <input type="radio" name="titre" id="madame">

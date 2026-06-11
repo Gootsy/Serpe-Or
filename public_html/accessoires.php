@@ -86,8 +86,9 @@ $stock = $_GET['stock'] ?? [];
             <section class="container-cartes">
                 
                 <?php
-                $error = false;
-                if ($error === true){
+                $filtreVide = !empty($accesCategorie) ||
+                            !empty($stock);
+                if ($filtreVide && empty($accessoires)){
                 ?>
                 <div class="error">
                     <p>Veuillez nous excuser. Nos produits sont momentanément invalides...</p>

@@ -124,7 +124,11 @@ $taille = $_GET['taille'] ?? [];
                 
                 <?php
                 $error = false;
-                if ($error === true){
+                $filtreVide = !empty($planteCategorie) ||
+                            !empty($care) ||
+                            !empty($exposition) ||
+                            !empty($taille);
+                if ($filtreVide && empty($plantes)){
                 ?>
                 <div class="error">
                     <p>Veuillez nous excuser. Nos produits sont momentanément invalides...</p>

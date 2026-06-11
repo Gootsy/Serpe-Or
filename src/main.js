@@ -34,6 +34,8 @@ function CalculateProductTotal(productNode) {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    
     /*MENU*/
     const openNav = document.getElementById('navTrigger');
     openNav.addEventListener("click", function (event) {
@@ -66,6 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+
+
     /*CAROUSEL*/
     if (document.querySelector('.controls')) {
     // L'élément existe, exécuter le code ici
@@ -93,6 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // console.log("Largeur après chargement :", liWidth);
     });
     }}
+
+
 
     /*BOUTON QUANTITE - details*/
     document.querySelectorAll('.count-add').forEach(btn => {
