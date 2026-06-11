@@ -232,3 +232,22 @@ function calculateCartTotal(array $cartItems): float
 
     return $total;
 }
+
+
+function getUsers() {
+    global $pdo;
+    $sql = "SELECT*
+            FROM users u";
+    $stmt =$pdo->query($sql);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getUsersById($id){
+    global $pdo;
+    $sql = "SELECT *
+            FROM users u
+            WHERE u.id_users=?";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([(int)$id]);
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+}

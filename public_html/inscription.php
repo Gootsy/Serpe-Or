@@ -1,4 +1,40 @@
-<?php require_once __DIR__ . '/includes/init.php'; ?>
+<?php 
+session_start();
+require_once __DIR__ . '/includes/init.php'; 
+
+$user=getUsersById($id);
+
+if(!isset($_SESSION['logged_user'])){
+    if($_POST['inscript']){
+        $prenom=$_POST['prenom'];
+        $nom=$_POST['nom'];
+        $email=$_POST['email'];
+        $password=$_POST['password'];
+        $confPassword=$_POST['confPassword'];
+
+        if($password === $confPassword){
+            try{
+                $req = $pdo->prepare('INSERT INTO users(name_user, surname, email, password) VALUES(?,?,?,?)');
+                $req->execute(array($nom, $prenom, $email, $password));
+                $_SESSION['logged_user'] = [
+                    'email' => $email,
+                    'name_user' => $nom
+                ];
+                if (!empty($_SESSION['pending_checkout'])) {
+                    unset($_SESSION['pending_checkout']);
+                    header("Location: checkout.php");
+                    exit;
+                }
+                header("Location: profil.php");
+                exit();
+            } catch (PDOException $e) {
+                echo "Vos données sont invalides" . $e->getMessage();
+            }
+        }
+    }
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -18,29 +54,32 @@
     <?php include_once(__DIR__ . '/includes/parts/menu.php') ?>
     <main id="inscription">
         <div class="inscription-container">
+
             <div class="connexion">
-                <form action="profil.php" method="POST">
-                    <h3>Connection</h3>
+                <form action="profil.php" method="POST" enctype="multipart/form-data">
+                    <h3>Connexion</h3>
                     <input type="email" name="email" id="email" placeholder="Email">
                     <input type="password" name="password" id="psw" placeholder="Mot de passe">
-                    <input type="submit" value="Connecter">
+                    <input type="submit" value="Connecter" name="connect">
                     <a href="#">MDP oublié</a>
                 </form>
                 <div class="fond-img-left">
                     <img src="<?php echo vite_get_asset('content/aloes.png'); ?>" alt="">
                 </div>
             </div>
+
             <div class="inscription">
-                <form action="profil.php" method="post">
+                <form action="profil.php" method="post" enctype="multipart/form-data">
                     <h3>Créer son compte</h3>
                     <input type="text" name="prenom" id="prenom" placeholder="Prénom">
                     <input type="text" name="nom" id="nom" placeholder="Nom">
                     <input type="email" name="email" id="email" placeholder="Email">
                     <input type="password" name="password" id="psw" placeholder="Mot de passe">
                     <input type="password" name="confPassword" id="confPsw" placeholder="Confirmer le MDP">
-                    <input type="submit" value="S'inscrire">
+                    <input type="submit" value="S'inscrire" name="inscript">
                 </form>
             </div>
+
         </div>
     </main>
     <?php include_once(__DIR__ . '../includes/parts/footer.php') ?>
