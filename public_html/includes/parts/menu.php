@@ -17,7 +17,23 @@
             </a>
         </div>
         <div class="icons">
+            <?php if(isset($_SESSION['logged_user'])) : ?>
+                <div class="dropdown-log">
+                    <button class="dropbtn-log">
+                        <i class="fa-solid fa-circle-user"></i>
+                    </button>
+
+                    <div class="dropdown-content-log">
+                        <a href="profil.php">Profil</a>
+                        <!-- <?php if ($_SESSION['loggedUser']['role'] === 'Administrator'): ?>
+                            <a href="admin.php">Admin</a>
+                        <?php endif; ?> -->
+                        <a href="logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                    </div>
+                </div>
+            <?php else: ?>
             <a href="inscription.php"><i class="fa-solid fa-circle-user"></i></a>
+            <?php endif; ?>
             <a href="panier.php"><i class="fa-solid fa-basket-shopping"></i></a>
             <a href="#" id="navTrigger"><i class="fa-solid fa-bars"></i></a>
         </div>

@@ -74,3 +74,30 @@
   font-size: 1.25rem;
   padding: 1%;
 }
+
+/*dropdown*/
+.dropbtn-log{
+  border: none;
+  background-color: white;
+  font-size: 1.25rem;
+  cursor: pointer;
+  position: absolute;
+  right: 22%;
+  padding-bottom: 2%;
+}
+.dropbtn-log:hover{
+  color: #377211;
+}
+.dropdown-log:hover .dropdown-content-log{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.dropdown-content-log{
+  display: none;
+  position: absolute;
+  top: 66%;
+  right: 20%;
+  background-color: white;
+  width: 5%;
+}

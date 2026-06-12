@@ -6,17 +6,42 @@ require_once __DIR__ . '/includes/init.php';
 
 if (!isset($_SESSION['logged_user'])){
     if ($_POST['inscrire']){
-        $prenom=htmlspecialchars(trim($_POST['prenom'])) ?? null;
-        $nom=htmlspecialchars(trim($_POST['nom'])) ?? null;
+        $prenom=htmlspecialchars(trim($_POST['prenom']));
+        $nom=htmlspecialchars(trim($_POST['nom']));
         $email=$_POST['email'];
         $password=$_POST['password'];
         $confPassword=$_POST['confPassword'];
 
+        $validation=true;
+        $erreurs=array();
+
+        if (empty($prenom)){
+            $validation=false;
+            $erreurs['prenom'] = "Prénom vide.";
+        }
+        if (empty($nom)){
+            $validation=false;
+            $erreurs['nom'] = "Nom vide.";
+        }
         if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $erreurs[] = "Email invalide.";
+            $validation=false;
+            $erreurs['email'] = "Email vide.";
+        }
+        if (empty($password)){
+            $validation=false;
+            $erreurs['password'] = "Mot de passse vide.";
+        }
+        if (empty($confPassword)){
+            $validation=false;
+            $erreurs['confPassword'] = "Mot de passse de confirmation vide.";
+        }
+        if ($password != $confPassword){
+            $validation=false;
+            $erreurs['confPassword'] = "Mots de passse différents.";
         }
 
-        if($password === $confPassword){
+
+        if($validation){
             try{
                 $req = $pdo->prepare('INSERT INTO users(id_users, name_user, surname, email, password) VALUES(?,?,?,?,?)');
                 $req->execute(array($id, $nom, $prenom, $email, $password));
@@ -25,12 +50,13 @@ if (!isset($_SESSION['logged_user'])){
                     'name_user' => $nom,
                     // 'id_users' => $id
                 ];
+                // vérification de connexion pour le panier
                 if (!empty($_SESSION['pending_checkout'])) {
                     unset($_SESSION['pending_checkout']);
                     header("Location: checkout.php");
                     exit;
                 }
-                header("Location: inscription.php");
+                header("Location: profil.php");
                 exit();
             } catch (PDOException $e) {
                 echo "Vos données sont invalides" . $e->getMessage();
@@ -79,11 +105,26 @@ if (!isset($_SESSION['logged_user'])){
             <div class="inscription">
                 <form action="" method="post" enctype="multipart/form-data">
                     <h3>Créer son compte</h3>
-                    <input type="text" name="prenom" id="prenom" placeholder="Prénom">
+                    <input type="text" name="prenom" id="prenom" placeholder="Prénom" value="<?php if(isset($prenom)){echo $prenom;} ?>">
+                    <?php if(isset($erreurs['prenom'])) : ?>
+                        <p class="erreurs"><?php echo $erreurs['prenom']; ?></p>
+                    <?php endif; ?>
                     <input type="text" name="nom" id="nom" placeholder="Nom">
+                    <?php if(isset($erreurs['nom'])) : ?>
+                        <p class="erreurs"><?php echo $erreurs['nom']; ?></p>
+                    <?php endif; ?>
                     <input type="email" name="email" id="email" placeholder="Email">
+                    <?php if(isset($erreurs['email'])) : ?>
+                        <p class="erreurs"><?php echo $erreurs['email']; ?></p>
+                    <?php endif; ?>
                     <input type="password" name="password" id="psw" placeholder="Mot de passe">
+                    <?php if(isset($erreurs['password'])) : ?>
+                        <p class="erreurs"><?php echo $erreurs['password']; ?></p>
+                    <?php endif; ?>
                     <input type="password" name="confPassword" id="confPsw" placeholder="Confirmer le MDP">
+                    <?php if(isset($erreurs['confPassword'])) : ?>
+                        <p class="erreurs"><?php echo $erreurs['confPassword']; ?></p>
+                    <?php endif; ?>
                     <input type="submit" value="S'inscrire" name="inscrire">
                 </form>
             </div>
