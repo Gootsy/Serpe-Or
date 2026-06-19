@@ -36,7 +36,7 @@ $plante = null;
 
             <section class="histoire">
                 <div class="histoire-img">
-                    <img src="<?php echo vite_get_asset('produits/Thym-Copyright-natalia-bulatova-shutterstock.webp'); ?>" alt="Image d'histoire de plantes">
+                    <img src="<?php echo vite_get_asset('plantes/Thym-Copyright-natalia-bulatova-shutterstock.webp'); ?>" alt="Image d'histoire de plantes">
                 </div>
                 <div class="histoire-txt">
                     <div>
@@ -45,7 +45,7 @@ $plante = null;
                         <p>Le nom de « Thym » est la francisation de Thymus qui désignait en latin plusieurs Lamiacées aromatiques de petite taille, lui-même issu du grec θύμον / thúmon, « thym ». Le nom provient de l'égyptien tham (nom d'une plante servant à embaumer les corps) ou de la racine grecque thy, signifiant « exhaler une odeur ». </p>
                     </div>
                     <div>
-                        <a class="button" href="#">Plus d'information<i class="fa-solid fa-arrow-right-long"></i></a>
+                        <a class="button" href="detail.php?id=10">Plus d'information<i class="fa-solid fa-arrow-right-long"></i></a>
                     </div>
                 </div>
                 <div class="fond-img-right">

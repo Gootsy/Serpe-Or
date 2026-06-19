@@ -229,6 +229,7 @@ h3{
   background-color: #377211;
   opacity: 0.8;
   margin: 1%;
+  transition: width 0.5s, background-color 0.5s;
 }
 
 .categorie:has(#inside:hover) .pagination-bullet:nth-child(1),
@@ -834,8 +835,8 @@ h3{
   .edit{
     position: absolute;
     z-index: 1;
-    right: 2%;
-    top: 2%;
+    left: 44%;
+    top: 8%;
     padding: 1%;
     font-size: 1.3rem;
   }

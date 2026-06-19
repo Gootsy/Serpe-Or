@@ -1,6 +1,23 @@
 <?php 
 session_start();
 require_once __DIR__ . '/includes/init.php'; 
+require_once __DIR__ . '/includes/database.php';
+
+$idUser = $_SESSION['logged_user']['id_users'] ?? null;
+if ($idUser) {
+    $user = getUsersByID($idUser);
+
+    if ($user) {
+        $_SESSION['logged_user'] = [
+            'email' => $user['email'],
+            'id_users' => $user['id_users']
+        ];
+    } else {
+        echo "Utilisateur introuvable";
+    }
+} else {
+    echo "Aucun utilisateur en session";
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -24,10 +41,15 @@ require_once __DIR__ . '/includes/init.php';
                     <img src="<?= vite_get_asset('content/claudia-pop-ik1eGAJ5qio-unsplash.jpg'); ?>" alt="">
                 </div>
                 <div class="profil-adresse">
-                    <h3>Nom Prénom</h3>
+                    <h3><?php echo $user['surname'] . ' ' . $user['name_user']; ?></h3>
+                    <?php if (empty($user['street']) && $user['nbr_street'] === 0 && ($user['zip']) === 0 && empty($user['locality']) && empty($user['country']) && !$user['tel']) : ?>
                     <p>Rue Lorem 55,</br>4321 Ipsum Belgique</p>
                     <p>+32401234567</p>
-                    <p>nom.prenom@mail.be</p>
+                    <?php else: ?>
+                    <p><?php echo $user['street'] . ' ' . $user['nbr_street'];?> ,</br><?php echo $user['zip'] . ' ' . $user['locality'] . ' ' . $user['country'];?></p>
+                    <p><?php echo $user['tel']; ?></p>
+                    <?php endif; ?>
+                    <p><?php echo $user['email']; ?></p>
                 </div>
                 <div class="fond-img-right">
                     <img src="<?php echo vite_get_asset('content/plante.png'); ?>" alt="">
@@ -36,7 +58,7 @@ require_once __DIR__ . '/includes/init.php';
             </section>
             <section class="profil-commande">
                 <h2>Vos commandes</h2>
-                <div class="recap-commande">
+                <!-- <div class="recap-commande">
                     <time datetime="01-01-2026">01-01-2026</time>
                     <div class="recap-prods">
                         <div class="recap-prod">
@@ -70,7 +92,7 @@ require_once __DIR__ . '/includes/init.php';
                             </table>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </section>
         </main>
         <?php include_once(__DIR__.'../includes/parts/footer.php'); ?>

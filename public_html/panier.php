@@ -106,8 +106,8 @@ $total = $sousTotal + $transport;
                     </tr>
                 </table>
                 <div class="panier-order-btn">
-                    <a href="#" class="invite">Commander en tant qu'invité</a>
-                    <a href="#" class="connecte">Commander</a>
+                    <a href="commande-guess.php" class="invite">Commander en tant qu'invité</a>
+                    <a href="inscription.php" class="connecte">Commander</a>
                 </div>
             </div>
             </section>
