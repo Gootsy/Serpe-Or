@@ -5,7 +5,42 @@ require_once __DIR__ . '/includes/init.php';
 // $user=getUsersById($id);
 
 if (!isset($_SESSION['logged_user'])){
-    if ($_POST['inscrire']){
+    if (isset($_POST['connect'])){
+        $email=$_POST['email'];
+        $password=$_POST['password'];
+        $erreurs=array();
+
+        if(!$email){
+            $erreurs['email']= "Email incorrect";
+        }
+
+        if(!empty($email) && !empty($password)){
+            try{
+                $req = $pdo->prepare('SELECT id_users FROM users WHERE email=:email AND password=:password');
+                $req->execute(['email' => $email, 'password' => $password]);
+                $users = $req->fetch(PDO::FETCH_ASSOC);
+
+                if ($users) {
+                    $_SESSION['logged_user'] = [
+                        'email' => $email,
+                        'id_users' => $users['id_users']
+                    ];
+                    if (!empty($_SESSION['pending_checkout'])) {
+                        unset($_SESSION['pending_checkout']);
+                        header("Location: checkout.php");
+                        exit;
+                    }
+                    header("Location: profil.php");
+                    exit();
+                }
+            } catch (PDOException $e) {
+                echo "Vos données sont invalides" . $e->getMessage();
+            }
+        }else {
+            echo 'Les informations envoyées ne permettent pas de vous identifier';
+        }
+    }
+    if (isset($_POST['inscrire'])){
         $prenom=htmlspecialchars(trim($_POST['prenom']));
         $nom=htmlspecialchars(trim($_POST['nom']));
         $email=$_POST['email'];
@@ -43,11 +78,12 @@ if (!isset($_SESSION['logged_user'])){
 
         if($validation){
             try{
-                $req = $pdo->prepare('INSERT INTO users(id_users, name_user, surname, email, password) VALUES(?,?,?,?,?)');
-                $req->execute(array($id, $nom, $prenom, $email, $password));
+                $req = $pdo->prepare('INSERT INTO users(name_user, surname, email, password) VALUES(?,?,?,?,?)');
+                $req->execute(array($nom, $prenom, $email, $password));
                 $_SESSION['logged_user'] = [
                     'email' => $email,
-                    'name_user' => $nom,
+                    'name_user' => $nom
+                    
                     // 'id_users' => $id
                 ];
                 // vérification de connexion pour le panier
@@ -109,19 +145,19 @@ if (!isset($_SESSION['logged_user'])){
                     <?php if(isset($erreurs['prenom'])) : ?>
                         <p class="erreurs"><?php echo $erreurs['prenom']; ?></p>
                     <?php endif; ?>
-                    <input type="text" name="nom" id="nom" placeholder="Nom">
+                    <input type="text" name="nom" id="nom" placeholder="Nom" value="<?php if(isset($nom)){echo $nom;} ?>">
                     <?php if(isset($erreurs['nom'])) : ?>
                         <p class="erreurs"><?php echo $erreurs['nom']; ?></p>
                     <?php endif; ?>
-                    <input type="email" name="email" id="email" placeholder="Email">
+                    <input type="email" name="email" id="email" placeholder="Email" value="<?php if(isset($email)){echo $email;} ?>">
                     <?php if(isset($erreurs['email'])) : ?>
                         <p class="erreurs"><?php echo $erreurs['email']; ?></p>
                     <?php endif; ?>
-                    <input type="password" name="password" id="psw" placeholder="Mot de passe">
+                    <input type="password" name="password" id="psw" placeholder="Mot de passe" value="<?php if(isset($password)){echo $password;} ?>">
                     <?php if(isset($erreurs['password'])) : ?>
                         <p class="erreurs"><?php echo $erreurs['password']; ?></p>
                     <?php endif; ?>
-                    <input type="password" name="confPassword" id="confPsw" placeholder="Confirmer le MDP">
+                    <input type="password" name="confPassword" id="confPsw" placeholder="Confirmer le MDP" value="<?php if(isset($confPassword)){echo $confPassword;} ?>">
                     <?php if(isset($erreurs['confPassword'])) : ?>
                         <p class="erreurs"><?php echo $erreurs['confPassword']; ?></p>
                     <?php endif; ?>

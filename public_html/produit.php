@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once __DIR__ . '/includes/init.php'; 
 require_once __DIR__ . '/includes/database.php';
 
@@ -36,7 +37,8 @@ $taille = $_GET['taille'] ?? [];
                         </div>
                         <div class="line dropdown">
                             <button type="button" class="dropbtn">Catégorie <i class="fa-solid fa-angle-down"></i></button>
-                            <div class="dropdown-content">
+                            
+                            <div class="dropdown-content <?php if (isset($planteCategorie[0])) echo 'show'; ?>">
                                 <div class="checkbox">
                                     <input type="checkbox" name="plante_categories[]" value="1" id="inside" <?= in_array('1', $planteCategorie) ? 'checked' : '' ?>>
                                     <label for="inside">Intérieur</label>
